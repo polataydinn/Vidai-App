@@ -1,5 +1,7 @@
 package com.tatari.vidai.presentation.login
 
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
 import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
@@ -7,6 +9,7 @@ import com.tatari.vidai.presentation.base.State
 import com.tatari.vidai.presentation.create_account.CreateAccountEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
+import kotlin.math.log
 
 @HiltViewModel
 class LoginViewModel @Inject constructor() : BaseViewModel<LoginEvent, LoginState, LoginEffect>() {
@@ -52,13 +55,25 @@ class LoginViewModel @Inject constructor() : BaseViewModel<LoginEvent, LoginStat
 
             LoginEvent.OnForgetPasswordClicked -> setEffect { LoginEffect.NavigateToForgetPassword }
             LoginEvent.OnSignInClicked -> {
-
+                login()
             }
 
             LoginEvent.OnCreateAccountClicked -> {
                 setEffect { LoginEffect.NavigateToCreateAccount }
             }
         }
+    }
+
+    private fun login() {
+         Firebase.auth.signInWithEmailAndPassword(getCurrentState().email, getCurrentState().password)
+             .addOnCompleteListener { task ->
+                 if (task.isSuccessful) {
+                     setEffect { LoginEffect.NavigateToHome }
+                 } else {
+                     setEffect { LoginEffect.ShowError(task.exception?.message.orEmpty()) }
+                     setState { copy(isError = true) }
+                 }
+             }
     }
 }
 
@@ -81,10 +96,15 @@ data class LoginState(
     val isError: Boolean = false,
     val passwordVisibility: Boolean = true,
     val isRememberMe: Boolean = true,
-) : State
+) : State {
+    val isLoginEnabled: Boolean
+        get() = email.isNotEmpty() && password.isNotEmpty()
+}
 
 sealed interface LoginEffect : Effect {
     data object NavigateBack : LoginEffect
     data object NavigateToForgetPassword : LoginEffect
     data object NavigateToCreateAccount : LoginEffect
+    data object NavigateToHome : LoginEffect
+    data class ShowError(val message: String) : LoginEffect
 }

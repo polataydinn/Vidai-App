@@ -1,5 +1,6 @@
 package com.tatari.vidai.presentation.login
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -28,6 +29,7 @@ import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.vector.ImageVector
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
@@ -57,9 +59,11 @@ fun LoginRoute(
     navigateBack: () -> Unit,
     navigateToForgetPassword: () -> Unit,
     navigateToCreateAccount: () -> Unit,
+    navigateToHome: () -> Unit,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.state.collectAsState()
+    val context = LocalContext.current
 
     LaunchedEffect(viewModel.effect) {
         viewModel.effect.collect { effect ->
@@ -67,6 +71,10 @@ fun LoginRoute(
                 LoginEffect.NavigateBack -> navigateBack()
                 LoginEffect.NavigateToForgetPassword -> navigateToForgetPassword()
                 LoginEffect.NavigateToCreateAccount -> navigateToCreateAccount()
+                LoginEffect.NavigateToHome -> navigateToHome()
+                is LoginEffect.ShowError -> {
+                    Toast.makeText(context, effect.message, Toast.LENGTH_SHORT).show()
+                }
             }
         }
     }
@@ -186,7 +194,7 @@ fun LoginScreen(
                 modifier = Modifier
                     .padding(top = 20.dp)
                     .align(Alignment.CenterHorizontally)
-                    .clickable {
+                    .clickable(enabled = viewState.isLoginEnabled) {
                         onViewEvent(LoginEvent.OnSignInClicked)
                     },
                 imageVector = Icons.IcLoginButton,

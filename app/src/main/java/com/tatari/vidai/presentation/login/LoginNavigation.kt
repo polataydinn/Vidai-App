@@ -15,6 +15,7 @@ fun NavGraphBuilder.loginScreen(
     navigateBack: () -> Unit,
     navigateToForgetPassword: () -> Unit,
     navigateToCreateAccount: () -> Unit,
+    navigateToHome: () -> Unit
 ) {
     composable(
         route = LoginRoute,
@@ -22,7 +23,8 @@ fun NavGraphBuilder.loginScreen(
         LoginRoute(
             navigateBack = navigateBack,
             navigateToForgetPassword = navigateToForgetPassword,
-            navigateToCreateAccount = navigateToCreateAccount
+            navigateToCreateAccount = navigateToCreateAccount,
+            navigateToHome = navigateToHome
         )
     }
 }

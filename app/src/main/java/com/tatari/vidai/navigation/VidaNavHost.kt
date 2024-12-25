@@ -5,13 +5,17 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
+import androidx.navigation.NavOptions
 import androidx.navigation.compose.NavHost
+import androidx.navigation.navOptions
 import com.tatari.vidai.presentation.create_account.createAccountScreen
 import com.tatari.vidai.presentation.create_account.navigateToCreateAccount
 import com.tatari.vidai.presentation.create_password.createPasswordScreen
 import com.tatari.vidai.presentation.create_password.navigateToCreatePassword
 import com.tatari.vidai.presentation.forget_password.forgetPasswordScreen
 import com.tatari.vidai.presentation.forget_password.navigateToForgetPassword
+import com.tatari.vidai.presentation.home.homeScreen
+import com.tatari.vidai.presentation.home.navigateToHome
 import com.tatari.vidai.presentation.login.loginScreen
 import com.tatari.vidai.presentation.login.navigateToLogin
 import com.tatari.vidai.presentation.welcome.welcomeScreen
@@ -35,8 +39,12 @@ fun VidaiNavHost(
                 navController.navigateToLogin()
             },
             navigateToHome = {
-                //navController.navigate("SignUpRoute")
-            }
+                navController.navigateToHome(
+                    navOptions = navOptions {
+                        popUpTo(startDestination) { inclusive = true }
+                    },
+                )
+            },
         )
 
         loginScreen(
@@ -48,6 +56,14 @@ fun VidaiNavHost(
             },
             navigateToCreateAccount = {
                 navController.navigateToCreateAccount()
+            },
+
+            navigateToHome = {
+                navController.navigateToHome(
+                    navOptions = navOptions {
+                        popUpTo(startDestination) { inclusive = true }
+                    },
+                )
             }
         )
 
@@ -69,6 +85,23 @@ fun VidaiNavHost(
         createPasswordScreen(
             navigateBack = {
                 navController.popBackStack()
+            },
+            navigateToHome = {
+                navController.navigateToHome(
+                    navOptions = navOptions {
+                        popUpTo(startDestination) { inclusive = true }
+                    },
+                )
+            }
+        )
+
+        homeScreen(
+            navigateToLogin = {
+                navController.navigateToLogin(
+                    navOptions = navOptions {
+                        popUpTo(startDestination) { inclusive = true }
+                    },
+                )
             }
         )
     }

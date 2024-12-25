@@ -6,6 +6,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.tatari.vidai.presentation.home.HomeRoute
 import com.tatari.vidai.presentation.welcome.welcomeRoute
 import kotlinx.coroutines.CoroutineScope
 
@@ -26,5 +29,9 @@ class VidaiAppState(
 ) {
 
     val startDestination: String
-        get() = welcomeRoute
+        get() = if (Firebase.auth.currentUser == null) {
+            welcomeRoute
+        } else {
+            HomeRoute
+        }
 }

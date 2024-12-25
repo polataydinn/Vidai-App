@@ -1,6 +1,7 @@
 package com.tatari.vidai.presentation.create_account
 
 import com.tatari.vidai.common.Session
+import com.tatari.vidai.common.User
 import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
@@ -39,10 +40,11 @@ class CreateAccountViewModel @Inject constructor() :
 
             CreateAccountEvent.OnContinueClicked -> {
                 if (getCurrentState().isContinueEnabled) {
-                    Session.createAccount = Session.createAccount?.copy(
+                    Session.createAccount = User(
                         name = getCurrentState().name.orEmpty(),
                         surname = getCurrentState().surname.orEmpty(),
-                        email = getCurrentState().email.orEmpty()
+                        email = getCurrentState().email.orEmpty(),
+                        password = ""
                     )
                     setEffect { CreateAccountEffect.NavigateToCreatePassword }
                 } else {

@@ -1,5 +1,9 @@
 package com.tatari.vidai.presentation.create_password
 
+import com.google.firebase.auth.auth
+import com.google.firebase.auth.ktx.auth
+import com.google.firebase.ktx.Firebase
+import com.tatari.vidai.common.Session
 import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
@@ -43,12 +47,24 @@ class CreatePasswordViewModel @Inject constructor() :
             }
 
             CreatePasswordEvent.OnCreateAccount -> {
-
+                createUser()
             }
             CreatePasswordEvent.OnLoginClicked -> {
 
             }
         }
+    }
+
+    private fun createUser() {
+        Firebase.auth.createUserWithEmailAndPassword(Session.createAccount?.email.orEmpty(), getCurrentState().firstPassword)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful) {
+                    setEffect { CreatePasswordEffect.NavigateToHome }
+                } else {
+                    setEffect { CreatePasswordEffect.OnError(task.exception?.message.orEmpty()) }
+                }
+            }
+
     }
 }
 
@@ -81,10 +97,15 @@ data class CreatePasswordState(
         ),
     ),
     val secondPasswordMatch:Boolean = firstPassword == secondPassword,
-) : State
+) : State {
+    val isButtonEnabled: Boolean
+        get() = passwordConstraints.all { it.isValid } && secondPasswordMatch
+}
 
 sealed interface CreatePasswordEffect : Effect {
     data object NavigateBack : CreatePasswordEffect
+    data object NavigateToHome : CreatePasswordEffect
+    data class OnError(val errorMessage: String) : CreatePasswordEffect
 }
 
 data class PasswordConstraint(
