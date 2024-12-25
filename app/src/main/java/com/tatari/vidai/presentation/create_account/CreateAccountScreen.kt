@@ -1,5 +1,6 @@
 package com.tatari.vidai.presentation.create_account
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
@@ -15,13 +16,16 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcAlreadyHasAnAccountText
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccountHeader
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccountText
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcSendButton
@@ -29,6 +33,7 @@ import com.tatari.vidai.R
 import com.tatari.vidai.presentation.components.VidaiEditText
 import com.tatari.vidai.presentation.login.AuthContainer
 import com.tatari.vidai.presentation.login.LoginHeader
+import kotlinx.coroutines.launch
 
 @Composable
 fun CreateAccountRoute(
@@ -59,6 +64,12 @@ fun CreateAccountScreen(
     viewState: CreateAccountState,
     onViewEvent: (CreateAccountEvent) -> Unit
 ) {
+    val context = LocalContext.current
+
+    if (viewState.isGeneralError) {
+        Toast.makeText(context, "Bütün Alanları Doldurunuz", Toast.LENGTH_SHORT).show()
+        onViewEvent(CreateAccountEvent.OnGeneralErrorShown)
+    }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -127,6 +138,17 @@ fun CreateAccountScreen(
                 imageVector = Icons.IcSendButton,
                 contentDescription = "Welcome Logo",
                 contentScale = ContentScale.Fit
+            )
+
+            Image(
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .clickable {
+                        onViewEvent(CreateAccountEvent.OnBackClicked)
+                    },
+                imageVector = Icons.IcAlreadyHasAnAccountText,
+                contentDescription = null
             )
         }
 

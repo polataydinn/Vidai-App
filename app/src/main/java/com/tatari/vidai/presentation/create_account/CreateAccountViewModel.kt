@@ -1,5 +1,6 @@
 package com.tatari.vidai.presentation.create_account
 
+import com.tatari.vidai.common.Session
 import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
@@ -37,7 +38,20 @@ class CreateAccountViewModel @Inject constructor() :
             }
 
             CreateAccountEvent.OnContinueClicked -> {
-                setEffect { CreateAccountEffect.NavigateToCreatePassword }
+                if (getCurrentState().isContinueEnabled) {
+                    Session.createAccount = Session.createAccount?.copy(
+                        name = getCurrentState().name.orEmpty(),
+                        surname = getCurrentState().surname.orEmpty(),
+                        email = getCurrentState().email.orEmpty()
+                    )
+                    setEffect { CreateAccountEffect.NavigateToCreatePassword }
+                } else {
+                    setState { copy(isGeneralError = true)}
+                }
+            }
+
+            CreateAccountEvent.OnGeneralErrorShown -> {
+                setState { copy(isGeneralError = false) }
             }
         }
     }
@@ -49,6 +63,7 @@ sealed interface CreateAccountEvent : Event {
     data class OnEmailChanged(val email: String): CreateAccountEvent
     data object OnBackClicked : CreateAccountEvent
     data object OnContinueClicked : CreateAccountEvent
+    data object OnGeneralErrorShown : CreateAccountEvent
 }
 
 data class CreateAccountState(
@@ -58,11 +73,14 @@ data class CreateAccountState(
     val email: String? = "",
     val isNameChanged : Boolean = false,
     val isSurnameChanged : Boolean = false,
-    val isEmailChanged : Boolean = false
+    val isEmailChanged : Boolean = false,
+    val isGeneralError: Boolean = false
 ) : State {
     val isNameError: Boolean = name.isNullOrBlank() && isNameChanged
     val isSurNameError: Boolean = surname.isNullOrBlank() && isSurnameChanged
     val isEmailError: Boolean = email.isNullOrBlank() && isEmailChanged
+    val isContinueEnabled: Boolean =
+        name.isNullOrBlank().not() && surname.isNullOrBlank().not() && email.isNullOrBlank().not()
 }
 
 sealed interface CreateAccountEffect : Effect {
