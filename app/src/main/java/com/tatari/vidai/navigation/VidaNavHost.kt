@@ -1,6 +1,7 @@
 package com.tatari.vidai.navigation
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -16,6 +17,7 @@ fun VidaiNavHost(
 ) {
     NavHost(
         modifier = modifier
+            .statusBarsPadding()
             .background(AppBackground),
         navController = navController,
         startDestination = startDestination,
