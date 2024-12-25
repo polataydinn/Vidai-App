@@ -4,6 +4,7 @@ import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
 import com.tatari.vidai.presentation.base.State
+import com.tatari.vidai.presentation.create_account.CreateAccountEvent
 import dagger.hilt.android.lifecycle.HiltViewModel
 import javax.inject.Inject
 

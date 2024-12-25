@@ -6,6 +6,10 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.tatari.vidai.presentation.create_account.createAccountScreen
+import com.tatari.vidai.presentation.create_account.navigateToCreateAccount
+import com.tatari.vidai.presentation.forget_password.forgetPasswordScreen
+import com.tatari.vidai.presentation.forget_password.navigateToForgetPassword
 import com.tatari.vidai.presentation.login.loginScreen
 import com.tatari.vidai.presentation.login.navigateToLogin
 import com.tatari.vidai.presentation.welcome.welcomeScreen
@@ -34,6 +38,24 @@ fun VidaiNavHost(
         )
 
         loginScreen(
+            navigateBack = {
+                navController.popBackStack()
+            },
+            navigateToForgetPassword = {
+                navController.navigateToForgetPassword()
+            },
+            navigateToCreateAccount = {
+                navController.navigateToCreateAccount()
+            }
+        )
+
+        forgetPasswordScreen(
+            navigateBack = {
+                navController.popBackStack()
+            }
+        )
+
+        createAccountScreen(
             navigateBack = {
                 navController.popBackStack()
             }

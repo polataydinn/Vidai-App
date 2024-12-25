@@ -55,6 +55,8 @@ import com.tatari.vidai.ui.theme.DarkGray
 @Composable
 fun LoginRoute(
     navigateBack: () -> Unit,
+    navigateToForgetPassword: () -> Unit,
+    navigateToCreateAccount: () -> Unit,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.state.collectAsState()
@@ -63,8 +65,8 @@ fun LoginRoute(
         viewModel.effect.collect { effect ->
             when (effect) {
                 LoginEffect.NavigateBack -> navigateBack()
-                LoginEffect.NavigateToForgetPassword -> TODO()
-                LoginEffect.NavigateToCreateAccount -> TODO()
+                LoginEffect.NavigateToForgetPassword -> navigateToForgetPassword()
+                LoginEffect.NavigateToCreateAccount -> navigateToCreateAccount()
             }
         }
     }
@@ -231,7 +233,7 @@ fun AuthContainer(
 }
 
 @Composable
-private fun LoginHeader(
+fun LoginHeader(
     image: ImageVector = Icons.IcWelcomeAgain
 ) {
     Image(
