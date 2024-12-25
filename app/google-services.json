@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "711503122736",
+    "project_id": "vidai-738fb",
+    "storage_bucket": "vidai-738fb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:711503122736:android:8093359e1b5b903fa778f5",
+        "android_client_info": {
+          "package_name": "com.tatari.vidai"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUDwh-qoXhlfJcyGKk4jIaat4-GzARlno"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
