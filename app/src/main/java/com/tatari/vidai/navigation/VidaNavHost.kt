@@ -6,6 +6,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
+import com.tatari.vidai.presentation.login.loginScreen
+import com.tatari.vidai.presentation.login.navigateToLogin
 import com.tatari.vidai.presentation.welcome.welcomeScreen
 import com.tatari.vidai.ui.theme.AppBackground
 
@@ -22,10 +24,22 @@ fun VidaiNavHost(
         navController = navController,
         startDestination = startDestination,
     ) {
-        welcomeScreen {
+        welcomeScreen(
+            navigateToSignIn = {
+                navController.navigateToLogin()
+            },
+            navigateToHome = {
+                //navController.navigate("SignUpRoute")
+            }
+        )
 
-        }
-
+        loginScreen(
+            navigateBack = {
+                navController.popBackStack()
+            }
+        )
     }
 }
+
+
 

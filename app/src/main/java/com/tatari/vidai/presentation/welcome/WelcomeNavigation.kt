@@ -12,13 +12,15 @@ fun NavController.navigateToWelcomeScreen(navOptions: NavOptions? = null) {
 }
 
 fun NavGraphBuilder.welcomeScreen(
-    navigateToGoogle: () -> Unit,
+    navigateToHome: () -> Unit,
+    navigateToSignIn: () -> Unit,
 ) {
     composable(
         route = welcomeRoute,
     ) {
         WelcomeRoute(
-            navigateToGoogle = navigateToGoogle,
+            navigateToHome = navigateToHome,
+            navigateToSignIn = navigateToSignIn,
         )
     }
 }

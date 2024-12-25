@@ -16,14 +16,20 @@ class WelcomeViewModel @Inject constructor(): BaseViewModel<WelcomeEvent, Welcom
     override fun handleEvents(event: WelcomeEvent) {
         when (event) {
             WelcomeEvent.OnGoogleClicked -> {
-                setEffect { WelcomeEffect.NavigateToGoogle }
+                setEffect { WelcomeEffect.NavigateToHome }
+            }
+
+            WelcomeEvent.OnSignInClicked -> {
+                setEffect { WelcomeEffect.NavigateToSignIn }
             }
         }
     }
+
 }
 
 sealed interface WelcomeEvent: Event {
     data object OnGoogleClicked: WelcomeEvent
+    data object OnSignInClicked: WelcomeEvent
 }
 
 data class WelcomeState(
@@ -31,5 +37,6 @@ data class WelcomeState(
 ): State
 
 sealed interface WelcomeEffect: Effect {
-    data object NavigateToGoogle: WelcomeEffect
+    data object NavigateToHome: WelcomeEffect
+    data object NavigateToSignIn: WelcomeEffect
 }

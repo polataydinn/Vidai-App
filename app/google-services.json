@@ -12,7 +12,20 @@
           "package_name": "com.tatari.vidai"
         }
       },
-      "oauth_client": [],
+      "oauth_client": [
+        {
+          "client_id": "711503122736-e7fma0on8qorlfvgce73q954c101ss8v.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tatari.vidai",
+            "certificate_hash": "a510e7da458eb5245cc8b5769d751234d408e6fc"
+          }
+        },
+        {
+          "client_id": "711503122736-f732irprrlos89v3kn5cfdv2ml3a4juf.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
       "api_key": [
         {
           "current_key": "AIzaSyCUDwh-qoXhlfJcyGKk4jIaat4-GzARlno"
@@ -20,7 +33,12 @@
       ],
       "services": {
         "appinvite_service": {
-          "other_platform_oauth_client": []
+          "other_platform_oauth_client": [
+            {
+              "client_id": "711503122736-f732irprrlos89v3kn5cfdv2ml3a4juf.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
         }
       }
     }
