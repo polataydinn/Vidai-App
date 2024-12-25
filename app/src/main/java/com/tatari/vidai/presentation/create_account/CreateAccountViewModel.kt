@@ -22,18 +22,22 @@ class CreateAccountViewModel @Inject constructor() :
 
             is CreateAccountEvent.OnEmailChanged -> {
                 setState {
-                    copy(email = event.email)
+                    copy(email = event.email, isEmailChanged = true)
                 }
             }
             is CreateAccountEvent.OnNameChanged -> {
                 setState {
-                    copy(name = event.name)
+                    copy(name = event.name, isNameChanged = true)
                 }
             }
             is CreateAccountEvent.OnSurnameChanged -> {
                 setState {
-                    copy(surname = event.surname)
+                    copy(surname = event.surname, isSurnameChanged = true)
                 }
+            }
+
+            CreateAccountEvent.OnContinueClicked -> {
+                setEffect { CreateAccountEffect.NavigateToCreatePassword }
             }
         }
     }
@@ -44,6 +48,7 @@ sealed interface CreateAccountEvent : Event {
     data class OnSurnameChanged(val surname: String): CreateAccountEvent
     data class OnEmailChanged(val email: String): CreateAccountEvent
     data object OnBackClicked : CreateAccountEvent
+    data object OnContinueClicked : CreateAccountEvent
 }
 
 data class CreateAccountState(
@@ -51,12 +56,16 @@ data class CreateAccountState(
     val name: String? = "",
     val surname: String? = "",
     val email: String? = "",
+    val isNameChanged : Boolean = false,
+    val isSurnameChanged : Boolean = false,
+    val isEmailChanged : Boolean = false
 ) : State {
-    val isNameError: Boolean = name.isNullOrBlank()
-    val isSurNameError: Boolean = surname.isNullOrBlank()
-    val isEmailError: Boolean = email.isNullOrBlank()
+    val isNameError: Boolean = name.isNullOrBlank() && isNameChanged
+    val isSurNameError: Boolean = surname.isNullOrBlank() && isSurnameChanged
+    val isEmailError: Boolean = email.isNullOrBlank() && isEmailChanged
 }
 
 sealed interface CreateAccountEffect : Effect {
     data object NavigateBack : CreateAccountEffect
+    data object NavigateToCreatePassword : CreateAccountEffect
 }

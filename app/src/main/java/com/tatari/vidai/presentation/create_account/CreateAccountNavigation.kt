@@ -13,12 +13,14 @@ fun NavController.navigateToCreateAccount(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.createAccountScreen(
     navigateBack: () -> Unit,
+    navigateToCreatePassword: () -> Unit,
 ) {
     composable(
         route = CreateAccountRoute,
     ) {
         CreateAccountRoute(
             navigateBack = navigateBack,
+            navigateToCreatePassword = navigateToCreatePassword
         )
     }
 }

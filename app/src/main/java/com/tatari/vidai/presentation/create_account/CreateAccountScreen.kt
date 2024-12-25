@@ -2,6 +2,7 @@ package com.tatari.vidai.presentation.create_account
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
@@ -15,26 +16,24 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccount
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccountHeader
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccountText
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcEmail
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcEmailError
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcEmailSelected
+import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcSendButton
 import com.tatari.vidai.R
 import com.tatari.vidai.presentation.components.VidaiEditText
 import com.tatari.vidai.presentation.login.AuthContainer
-import com.tatari.vidai.presentation.login.LoginEvent
 import com.tatari.vidai.presentation.login.LoginHeader
 
 @Composable
 fun CreateAccountRoute(
     navigateBack: () -> Unit,
+    navigateToCreatePassword: () -> Unit,
     viewModel: CreateAccountViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.state.collectAsState()
@@ -43,6 +42,7 @@ fun CreateAccountRoute(
         viewModel.effect.collect { effect ->
             when (effect) {
                 CreateAccountEffect.NavigateBack -> navigateBack()
+                CreateAccountEffect.NavigateToCreatePassword -> navigateToCreatePassword()
             }
         }
     }
@@ -79,16 +79,54 @@ fun CreateAccountScreen(
             )
 
             VidaiEditText(
-                modifier = Modifier.padding(top = if (viewState.isNameError) 8.dp else 50.dp),
+                modifier = Modifier.padding(top = 50.dp),
                 value = viewState.name.orEmpty(),
                 onValueChange = { onViewEvent(CreateAccountEvent.OnNameChanged(it)) },
-                label = "E-mail",
+                label = "İsim",
                 textStyle = TextStyle(
                     color = Color.Black,
                     fontSize = 14.sp,
                     fontFamily = FontFamily(Font(R.font.poppins_regular))
                 ),
                 isError = viewState.isNameError,
+            )
+
+            VidaiEditText(
+                modifier = Modifier.padding(top = 8.dp),
+                value = viewState.surname.orEmpty(),
+                onValueChange = { onViewEvent(CreateAccountEvent.OnSurnameChanged(it)) },
+                label = "Soyisim",
+                textStyle = TextStyle(
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_regular))
+                ),
+                isError = viewState.isSurNameError,
+            )
+
+            VidaiEditText(
+                modifier = Modifier.padding(top = 8.dp),
+                value = viewState.email.orEmpty(),
+                onValueChange = { onViewEvent(CreateAccountEvent.OnEmailChanged(it)) },
+                label = "E-mail",
+                textStyle = TextStyle(
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_regular))
+                ),
+                isError = viewState.isEmailError,
+            )
+
+            Image(
+                modifier = Modifier
+                    .padding(top = 20.dp)
+                    .align(Alignment.CenterHorizontally)
+                    .clickable {
+                        onViewEvent(CreateAccountEvent.OnContinueClicked)
+                    },
+                imageVector = Icons.IcSendButton,
+                contentDescription = "Welcome Logo",
+                contentScale = ContentScale.Fit
             )
         }
 
