@@ -19,16 +19,40 @@ class ForgetPasswordViewModel @Inject constructor() :
             ForgetPasswordEvent.OnBackClicked -> {
                 setEffect { ForgetPasswordEffect.NavigateBack }
             }
+
+            is ForgetPasswordEvent.FirstPasswordChanged -> {
+                setState {
+                    copy(firstPassword = event.password)
+                }
+            }
+
+            ForgetPasswordEvent.PasswordVisibilityChanged -> {
+                setState {
+                    copy(passwordVisibility = !passwordVisibility)
+                }
+            }
+
+            is ForgetPasswordEvent.SecondPasswordChanged -> {
+                setState {
+                    copy(secondPassword = event.password)
+                }
+            }
         }
     }
 }
 
 sealed interface ForgetPasswordEvent : Event {
     data object OnBackClicked : ForgetPasswordEvent
+    data class FirstPasswordChanged(val password: String) : ForgetPasswordEvent
+    data class SecondPasswordChanged(val password: String) : ForgetPasswordEvent
+    data object PasswordVisibilityChanged : ForgetPasswordEvent
 }
 
 data class ForgetPasswordState(
-    val isLoading: Boolean = false
+    val isLoading: Boolean = false,
+    val passwordVisibility: Boolean = false,
+    val firstPassword: String = "",
+    val secondPassword: String = "",
 ) : State
 
 sealed interface ForgetPasswordEffect : Effect {

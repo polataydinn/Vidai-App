@@ -19,18 +19,88 @@ class CreatePasswordViewModel @Inject constructor() :
             CreatePasswordEvent.OnBackClicked -> {
                 setEffect { CreatePasswordEffect.NavigateBack }
             }
+
+            is CreatePasswordEvent.FirstPasswordChanged -> {
+                setState {
+                    copy(firstPassword = event.password,
+                        passwordConstraints = passwordConstraints.map { constraint ->
+                            constraint.copy(isValid = constraint.id.predicate(event.password))
+                        },
+                        secondPasswordMatch = secondPassword == event.password)
+                }
+            }
+
+            CreatePasswordEvent.PasswordVisibilityChanged -> {
+                setState {
+                    copy(passwordVisibility = !passwordVisibility, )
+                }
+            }
+
+            is CreatePasswordEvent.SecondPasswordChanged -> {
+                setState {
+                    copy(secondPassword = event.password, secondPasswordMatch = firstPassword == event.password)
+                }
+            }
+
+            CreatePasswordEvent.OnCreateAccount -> {
+
+            }
+            CreatePasswordEvent.OnLoginClicked -> {
+
+            }
         }
     }
 }
 
 sealed interface CreatePasswordEvent : Event {
     data object OnBackClicked : CreatePasswordEvent
+    data object OnLoginClicked : CreatePasswordEvent
+    data object OnCreateAccount : CreatePasswordEvent
+    data class FirstPasswordChanged(val password: String) : CreatePasswordEvent
+    data class SecondPasswordChanged(val password: String) : CreatePasswordEvent
+    data object PasswordVisibilityChanged : CreatePasswordEvent
 }
 
 data class CreatePasswordState(
-    val isLoading: Boolean = false
+    val isLoading: Boolean = false,
+    val passwordVisibility: Boolean = false,
+    val firstPassword: String = "",
+    val secondPassword: String = "",
+    val passwordConstraints: List<PasswordConstraint> = listOf(
+        PasswordConstraint(
+            PasswordConstraintType.LENGTH, "Şifre en az 8 karakter uzunluğunda olmalıdır.", false
+        ),
+        PasswordConstraint(
+            PasswordConstraintType.UPPER_CASE, "Şifre en az bir büyük harf içermelidir.", false
+        ),
+        PasswordConstraint(PasswordConstraintType.LOWER_CASE, "Bir küçük harf.", false),
+        PasswordConstraint(
+            PasswordConstraintType.NUMBER_SPECIAL_CHARACTER,
+            "Şifre en az bir rakam veya özel karakter içermelidir.",
+            false
+        ),
+    ),
+    val secondPasswordMatch:Boolean = firstPassword == secondPassword,
 ) : State
 
 sealed interface CreatePasswordEffect : Effect {
     data object NavigateBack : CreatePasswordEffect
+}
+
+data class PasswordConstraint(
+    val id: PasswordConstraintType,
+    val text: String,
+    val isValid: Boolean,
+)
+
+enum class PasswordConstraintType(val predicate: (String) -> Boolean) {
+    LENGTH({ it.length >= 8 }),
+    UPPER_CASE({ it.contains(Regex("[A-Z]")) }),
+    LOWER_CASE({
+        it.contains(
+            Regex("[a-z]")
+        )
+    }),
+    NUMBER_SPECIAL_CHARACTER({ it.contains(Regex("[0-9]")) || it.contains(Regex("[^A-Za-z0-9]")) }),
+    MATCH_WITH_FIRST({ true })
 }
