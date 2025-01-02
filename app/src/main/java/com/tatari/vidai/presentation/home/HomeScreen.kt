@@ -27,9 +27,9 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcBackGround
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcHomeDescription
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcStart
+import com.tatari.vidai.ui.drawables.IcBackGround
+import com.tatari.vidai.ui.drawables.IcHomeDescription
+import com.tatari.vidai.ui.drawables.IcStart
 import com.tatari.vidai.presentation.forget_password.ForgetPasswordEffect
 
 @Composable

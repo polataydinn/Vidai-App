@@ -25,10 +25,10 @@ import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcAlreadyHasAnAccountText
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccountHeader
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccountText
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcSendButton
+import com.tatari.vidai.ui.drawables.IcAlreadyHasAnAccountText
+import com.tatari.vidai.ui.drawables.IcCreateAccountHeader
+import com.tatari.vidai.ui.drawables.IcCreateAccountText
+import com.tatari.vidai.ui.drawables.IcSendButton
 import com.tatari.vidai.R
 import com.tatari.vidai.presentation.components.VidaiEditText
 import com.tatari.vidai.presentation.login.AuthContainer

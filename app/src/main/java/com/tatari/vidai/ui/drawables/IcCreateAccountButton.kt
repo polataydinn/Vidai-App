@@ -1,4 +1,4 @@
-package com.furkandogan.doganlarkuyumculuk.ui.drawables
+package com.tatari.vidai.ui.drawables
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Box

@@ -36,8 +36,8 @@ import androidx.compose.ui.text.input.PasswordVisualTransformation
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccount
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcCreateAccountHeader
+import com.tatari.vidai.ui.drawables.IcCreateAccount
+import com.tatari.vidai.ui.drawables.IcCreateAccountHeader
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcLock
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcLockError
 import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcLockSelected

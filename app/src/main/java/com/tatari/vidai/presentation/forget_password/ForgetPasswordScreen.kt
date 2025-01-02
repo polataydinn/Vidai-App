@@ -24,9 +24,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcForgetPasswordDescription
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcForgetPasswordHeader
-import com.furkandogan.doganlarkuyumculuk.ui.drawables.IcSendButton
+import com.tatari.vidai.ui.drawables.IcForgetPasswordDescription
+import com.tatari.vidai.ui.drawables.IcForgetPasswordHeader
+import com.tatari.vidai.ui.drawables.IcSendButton
 import com.tatari.vidai.R
 import com.tatari.vidai.presentation.components.VidaiEditText
 import com.tatari.vidai.presentation.login.AuthContainer
