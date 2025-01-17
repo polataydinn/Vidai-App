@@ -44,7 +44,9 @@ class CreateAccountViewModel @Inject constructor() :
                         name = getCurrentState().name.orEmpty(),
                         surname = getCurrentState().surname.orEmpty(),
                         email = getCurrentState().email.orEmpty(),
-                        password = ""
+                        password = "",
+                        weight = getCurrentState().weight.orEmpty(),
+                        height = getCurrentState().height.orEmpty(),
                     )
                     setEffect { CreateAccountEffect.NavigateToCreatePassword }
                 } else {
@@ -55,6 +57,18 @@ class CreateAccountViewModel @Inject constructor() :
             CreateAccountEvent.OnGeneralErrorShown -> {
                 setState { copy(isGeneralError = false) }
             }
+
+            is CreateAccountEvent.OnWeightChanged -> {
+                setState {
+                    copy(weight = event.weight, isWeightChanged = true)
+                }
+            }
+
+            is CreateAccountEvent.OnHeightChanged -> {
+                setState {
+                    copy(height = event.height, isHeightChanged = true)
+                }
+            }
         }
     }
 }
@@ -63,6 +77,8 @@ sealed interface CreateAccountEvent : Event {
     data class OnNameChanged(val name: String): CreateAccountEvent
     data class OnSurnameChanged(val surname: String): CreateAccountEvent
     data class OnEmailChanged(val email: String): CreateAccountEvent
+    data class OnWeightChanged(val weight: String) : CreateAccountEvent
+    data class OnHeightChanged(val height: String) : CreateAccountEvent
     data object OnBackClicked : CreateAccountEvent
     data object OnContinueClicked : CreateAccountEvent
     data object OnGeneralErrorShown : CreateAccountEvent
@@ -73,16 +89,23 @@ data class CreateAccountState(
     val name: String? = "",
     val surname: String? = "",
     val email: String? = "",
-    val isNameChanged : Boolean = false,
-    val isSurnameChanged : Boolean = false,
-    val isEmailChanged : Boolean = false,
-    val isGeneralError: Boolean = false
+    val weight: String? = "",
+    val height: String? = "",
+    val isNameChanged: Boolean = false,
+    val isSurnameChanged: Boolean = false,
+    val isEmailChanged: Boolean = false,
+    val isWeightChanged: Boolean = false,
+    val isHeightChanged: Boolean = false,
+    val isGeneralError: Boolean = false,
 ) : State {
     val isNameError: Boolean = name.isNullOrBlank() && isNameChanged
     val isSurNameError: Boolean = surname.isNullOrBlank() && isSurnameChanged
     val isEmailError: Boolean = email.isNullOrBlank() && isEmailChanged
+    val isWeightError: Boolean = weight.isNullOrBlank() && isWeightChanged
+    val isHeightError: Boolean = height.isNullOrBlank() && isHeightChanged
     val isContinueEnabled: Boolean =
-        name.isNullOrBlank().not() && surname.isNullOrBlank().not() && email.isNullOrBlank().not()
+        name.isNullOrBlank().not() && surname.isNullOrBlank().not() && email.isNullOrBlank()
+            .not() && weight.isNullOrBlank().not() && height.isNullOrBlank().not()
 }
 
 sealed interface CreateAccountEffect : Effect {

@@ -7,6 +7,7 @@ import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -23,6 +24,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.font.Font
 import androidx.compose.ui.text.font.FontFamily
+import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.tatari.vidai.ui.drawables.IcAlreadyHasAnAccountText
@@ -113,6 +115,34 @@ fun CreateAccountScreen(
                     fontFamily = FontFamily(Font(R.font.poppins_regular))
                 ),
                 isError = viewState.isSurNameError,
+            )
+
+            VidaiEditText(
+                modifier = Modifier.padding(top = 8.dp),
+                value = viewState.surname.orEmpty(),
+                onValueChange = { onViewEvent(CreateAccountEvent.OnWeightChanged(it)) },
+                label = "Kilo",
+                textStyle = TextStyle(
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_regular))
+                ),
+                isError = viewState.isWeightError,
+                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Decimal)
+            )
+
+            VidaiEditText(
+                modifier = Modifier.padding(top = 8.dp),
+                value = viewState.surname.orEmpty(),
+                onValueChange = { onViewEvent(CreateAccountEvent.OnHeightChanged(it)) },
+                label = "Boy",
+                textStyle = TextStyle(
+                    color = Color.Black,
+                    fontSize = 14.sp,
+                    fontFamily = FontFamily(Font(R.font.poppins_regular))
+                ),
+                isError = viewState.isHeightError,
+                keyboardOptions = KeyboardOptions.Default.copy(keyboardType = KeyboardType.Decimal)
             )
 
             VidaiEditText(
