@@ -95,7 +95,7 @@ fun WaterReminderScreen(
         )
 
         WaterIntakeTracker(
-            currentIntake = currentIntake.value,
+            currentIntake = currentIntake.intValue,
             targetIntake = 2000,
             onAdd = { currentIntake.value += 250 },
             onRemove = {
