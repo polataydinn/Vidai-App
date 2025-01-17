@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "711503122736",
+    "firebase_url": "https://vidai-738fb-default-rtdb.firebaseio.com",
     "project_id": "vidai-738fb",
     "storage_bucket": "vidai-738fb.firebasestorage.app"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "711503122736-6n3nofchgrq02sj9v0p92dl2gacoea4l.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.tatari.vidai",
+            "certificate_hash": "415d3a32d7bbc06f774beb6314dac9b710a797f9"
+          }
+        },
         {
           "client_id": "711503122736-e7fma0on8qorlfvgce73q954c101ss8v.apps.googleusercontent.com",
           "client_type": 1,
