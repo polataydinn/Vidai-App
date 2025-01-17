@@ -28,6 +28,7 @@ class MainActivity : ComponentActivity() {
         )
     }
 
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         FirebaseApp.initializeApp(this)
@@ -45,5 +46,14 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+    }
+
+    fun readJsonFile() {
+        val inputStream = resources.openRawResource(R.raw.diets)
+        val size = inputStream.available()
+        val buffer = ByteArray(size)
+        inputStream.read(buffer)
+        inputStream.close()
+        val json = String(buffer, Charsets.UTF_8)
     }
 }

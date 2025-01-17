@@ -26,6 +26,9 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeEvent, HomeState, 
             }
         }
     }
+
+    //read file from json file which is in raw folder
+
 }
 
 sealed interface HomeEvent : Event {

@@ -1,4 +1,4 @@
-package ${PACKAGE_NAME}
+package com.tatari.vidai.presentation.weight_tracker
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,21 +14,21 @@ import androidx.compose.foundation.background
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun ${NAME}Route(
+fun WeightTrackerRoute(
     navigateBack: () -> Unit,
-    viewModel: ${NAME}ViewModel = hiltViewModel()
+    viewModel: WeightTrackerViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.state.collectAsState()
 
     LaunchedEffect(viewModel.effect) {
         viewModel.effect.collect { effect ->
             when (effect) {
-                ${NAME}Effect.NavigateBack -> navigateBack()
+                WeightTrackerEffect.NavigateBack -> navigateBack()
             }
         }
     }
 
-    ${NAME}Screen(
+    WeightTrackerScreen(
         viewState = viewState,
         onViewEvent = viewModel::setEvent
     )
@@ -36,9 +36,9 @@ fun ${NAME}Route(
 }
 
 @Composable
-fun ${NAME}Screen(
-    viewState: ${NAME}State,
-    onViewEvent: (${NAME}Event) -> Unit
+fun WeightTrackerScreen(
+    viewState: WeightTrackerState,
+    onViewEvent: (WeightTrackerEvent) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -52,9 +52,9 @@ fun ${NAME}Screen(
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-private fun ${NAME}ScreenPreview() {
-    ${NAME}Screen(
-        viewState = ${NAME}State(),
+private fun WeightTrackerScreenPreview() {
+    WeightTrackerScreen(
+        viewState = WeightTrackerState(),
         onViewEvent = { }
     )
 }

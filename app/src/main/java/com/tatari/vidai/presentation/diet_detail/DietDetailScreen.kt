@@ -1,4 +1,4 @@
-package ${PACKAGE_NAME}
+package com.tatari.vidai.presentation.diet_detail
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -14,21 +14,21 @@ import androidx.compose.foundation.background
 import androidx.compose.ui.graphics.Color
 
 @Composable
-fun ${NAME}Route(
+fun DietDetailRoute(
     navigateBack: () -> Unit,
-    viewModel: ${NAME}ViewModel = hiltViewModel()
+    viewModel: DietDetailViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.state.collectAsState()
 
     LaunchedEffect(viewModel.effect) {
         viewModel.effect.collect { effect ->
             when (effect) {
-                ${NAME}Effect.NavigateBack -> navigateBack()
+                DietDetailEffect.NavigateBack -> navigateBack()
             }
         }
     }
 
-    ${NAME}Screen(
+    DietDetailScreen(
         viewState = viewState,
         onViewEvent = viewModel::setEvent
     )
@@ -36,9 +36,9 @@ fun ${NAME}Route(
 }
 
 @Composable
-fun ${NAME}Screen(
-    viewState: ${NAME}State,
-    onViewEvent: (${NAME}Event) -> Unit
+fun DietDetailScreen(
+    viewState: DietDetailState,
+    onViewEvent: (DietDetailEvent) -> Unit
 ) {
     Column(
         modifier = Modifier
@@ -52,9 +52,9 @@ fun ${NAME}Screen(
 
 @Preview(showBackground = true, showSystemUi = true)
 @Composable
-private fun ${NAME}ScreenPreview() {
-    ${NAME}Screen(
-        viewState = ${NAME}State(),
+private fun DietDetailScreenPreview() {
+    DietDetailScreen(
+        viewState = DietDetailState(),
         onViewEvent = { }
     )
 }

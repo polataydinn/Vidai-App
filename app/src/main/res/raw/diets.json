@@ -1,0 +1,622 @@
+[
+  {
+    "title": "Akdeniz Diyeti",
+    "shortDescription": "Zeytinyağı, balık ve taze sebzelerin öne çıktığı, kalp dostu bir diyet",
+    "dietList": [
+      {
+        "day": 1,
+        "breakfast": "1 dilim tam buğday ekmeği, beyaz peynir, domates, salatalık, zeytin",
+        "snack1": "1 orta boy elma",
+        "lunch": "Zeytinyağlı sebze yemeği, 1 kase yoğurt",
+        "snack2": "2 adet ceviz",
+        "dinner": "Izgara balık, roka salatası, 1 dilim tam tahıllı ekmek"
+      },
+      {
+        "day": 2,
+        "breakfast": "Yulaf ezmesi, süt, çilek",
+        "snack1": "1 fincan yeşil çay, 1 avuç badem",
+        "lunch": "Tavuklu Akdeniz salatası, 1 dilim ekmek",
+        "snack2": "1 küçük kase yoğurt",
+        "dinner": "Zeytinyağlı barbunya, bulgur pilavı, salata"
+      },
+      {
+        "day": 3,
+        "breakfast": "2 haşlanmış yumurta, 1 dilim tam tahıllı ekmek, söğüş sebze",
+        "snack1": "1 armut",
+        "lunch": "Izgara tavuk, bol yeşillikli salata",
+        "snack2": "1 fincan bitki çayı, 1-2 fındık",
+        "dinner": "Sebzeli makarna, 1 kase ayran"
+      },
+      {
+        "day": 4,
+        "breakfast": "Lor peynirli omlet, domates, salatalık, zeytin",
+        "snack1": "1 avuç çiğ badem",
+        "lunch": "Balık çorbası, 1 dilim tam buğday ekmeği",
+        "snack2": "1 kivi",
+        "dinner": "Kırmızı mercimek çorbası, tam buğday ekmeği, salata"
+      },
+      {
+        "day": 5,
+        "breakfast": "1 dilim peynirli tost, söğüş sebze",
+        "snack1": "1 bardak ayran",
+        "lunch": "Izgara köfte, az bulgur pilavı, çoban salata",
+        "snack2": "1 dilim tam tahıllı ekmek üzerine lor peyniri",
+        "dinner": "Kinoa salatası, ızgara sebze"
+      },
+      {
+        "day": 6,
+        "breakfast": "1 kase probiyotik yoğurt, meyve dilimleri, yulaf",
+        "snack1": "1 fincan bitki çayı, 2 fındık",
+        "lunch": "Ton balıklı salata, 1 dilim ekmek",
+        "snack2": "1 orta boy elma",
+        "dinner": "Zeytinyağlı kabak, yoğurt, bulgur pilavı"
+      },
+      {
+        "day": 7,
+        "breakfast": "1 dilim tam buğday ekmeği, beyaz peynir, 1 haşlanmış yumurta, söğüş sebze",
+        "snack1": "1 muz",
+        "lunch": "Zeytinyağlı enginar, 1 kase yoğurt",
+        "snack2": "1 fincan bitki çayı, 2 ceviz",
+        "dinner": "Izgara hindi, salata, 1 dilim ekmek"
+      }
+    ]
+  },
+  {
+    "title": "Karbonhidrat Dengeli Diyet",
+    "shortDescription": "Günlük karbonhidrat alımını dengeleyerek kan şekeri kontrolüne yardımcı olur.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Yulaf lapası, süt, tarçınlı elma",
+        "snack1": "1 fincan şekersiz kahve, 2 tam ceviz",
+        "lunch": "Izgara tavuk göğsü, haşlanmış sebze",
+        "snack2": "1 dilim peynir, 1 adet wasa",
+        "dinner": "Fırında somon, az esmer pirinç pilavı, yeşil salata"
+      },
+      {
+        "day": 2,
+        "breakfast": "1 dilim tam buğday ekmeği, 2 yumurta beyazı ile omlet, söğüş sebze",
+        "snack1": "1 avuç badem",
+        "lunch": "Bulgur pilavı, ızgara köfte, ayran",
+        "snack2": "1 küçük kase yoğurt, 1 adet kuru kayısı",
+        "dinner": "Fırında tavuk, sebze graten"
+      },
+      {
+        "day": 3,
+        "breakfast": "Az yağlı peynir, 1 dilim tam tahıllı ekmek, domates, salatalık",
+        "snack1": "1 yeşil elma, 1 fincan bitki çayı",
+        "lunch": "Düşük karbonhidratlı makarna, sebzeli sos",
+        "snack2": "1 dilim tam buğday ekmeği üzerine humus",
+        "dinner": "Hindi şiş, haşlanmış patates, yoğurt"
+      },
+      {
+        "day": 4,
+        "breakfast": "Lor peynir, 1 tam tahıllı ekmek, salatalık, yeşil çay",
+        "snack1": "1 adet light sütlü kahve, 2 çiğ badem",
+        "lunch": "Tavuklu salata, kepek ekmeği",
+        "snack2": "1 küçük armut",
+        "dinner": "Brokoli çorbası, ızgara balık"
+      },
+      {
+        "day": 5,
+        "breakfast": "Yulaf ezmesi, 1 bardak süt, muz dilimleri",
+        "snack1": "1 fincan Türk kahvesi, 1 kare bitter çikolata",
+        "lunch": "Az yağlı sebze çorbası, tam buğday ekmeği",
+        "snack2": "1 avuç tuzsuz leblebi",
+        "dinner": "Somon ızgara, mercimek salatası"
+      },
+      {
+        "day": 6,
+        "breakfast": "Çırpılmış yumurta, tam buğday ekmeği, avokado dilimleri",
+        "snack1": "1 orta boy şeftali",
+        "lunch": "Yeşil mercimek yemeği, yoğurt, tam buğday ekmeği",
+        "snack2": "1 bardak ayran",
+        "dinner": "Izgara tavuk göğsü, zeytinyağlı sebze, salata"
+      },
+      {
+        "day": 7,
+        "breakfast": "Tam buğday ekmeği, fıstık ezmesi, 1 adet hurma",
+        "snack1": "1 fincan yeşil çay, 1 dilim ananas",
+        "lunch": "Ton balıklı salata, 1 dilim tam buğday ekmeği",
+        "snack2": "1 küçük kâse yaban mersini",
+        "dinner": "Izgara hindi, kinoa pilavı, haşlanmış sebze"
+      }
+    ]
+  },
+  {
+    "title": "Protein Ağırlıklı Diyet",
+    "shortDescription": "Kas kütlesini arttırmak ve tok tutmak amacıyla protein oranı yüksek beslenme planı.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Yumurta beyazı omleti, lor peyniri, çeri domates",
+        "snack1": "1 avuç badem",
+        "lunch": "Ton balıklı salata, tam tahıllı ekmek",
+        "snack2": "Protein shake",
+        "dinner": "Izgara tavuk göğsü, haşlanmış sebze"
+      },
+      {
+        "day": 2,
+        "breakfast": "Az yağlı süzme peynir, tam buğday ekmeği, yeşillik",
+        "snack1": "1 bardak kefir",
+        "lunch": "Hindi burger (tam buğday ekmek ile), yanına yeşil salata",
+        "snack2": "1 kutu light ton balığı",
+        "dinner": "Fırında somon, zeytinyağlı kabak"
+      },
+      {
+        "day": 3,
+        "breakfast": "Lor peyniri ve yulaflı omlet, söğüş sebze",
+        "snack1": "1 avuç kabak çekirdeği içi",
+        "lunch": "Yağsız kırmızı et ızgara, tam buğday ekmeği",
+        "snack2": "1 haşlanmış yumurta",
+        "dinner": "Izgara tavuk, brokoli, karnabahar"
+      },
+      {
+        "day": 4,
+        "breakfast": "Yüksek proteinli pankek (yumurta, yulaf, lor), meyve dilimleri",
+        "snack1": "1 ölçek protein tozu (su ile), 1 muz",
+        "lunch": "Izgara hindi göğsü, esmer pirinç",
+        "snack2": "1 bardak ayran, 2-3 çiğ badem",
+        "dinner": "Izgara balık, yeşil salata"
+      },
+      {
+        "day": 5,
+        "breakfast": "Yumurta akı ve peynirli tost (tam buğday ekmek), domates",
+        "snack1": "1 dilim hindi füme, 1 adet wasa",
+        "lunch": "Tavuk göğsü sote, kinoa",
+        "snack2": "Protein bar",
+        "dinner": "Somon ızgara, ızgara sebzeler"
+      },
+      {
+        "day": 6,
+        "breakfast": "Haşlanmış yumurta (2 adet), az yağlı peynir, 1 dilim tam tahıllı ekmek",
+        "snack1": "1 bardak light süt",
+        "lunch": "Hindi şinitzel (fırında), yeşil salata",
+        "snack2": "Yağsız peynir, 1 adet wasa",
+        "dinner": "Kırmızı et ızgara, buharda sebze"
+      },
+      {
+        "day": 7,
+        "breakfast": "Yumurta akı omleti, 1 kaşık lor, avokado",
+        "snack1": "1 ölçek protein tozu, buzlu kahve",
+        "lunch": "Tavuklu sezar salata (az soslu)",
+        "snack2": "1 kase yoğurt, 1 tatlı kaşığı chia",
+        "dinner": "Ton balığı, yeşil sebze sote, tam buğday ekmeği"
+      }
+    ]
+  },
+  {
+    "title": "Vejetaryen Diyet",
+    "shortDescription": "Et yerine bitkisel protein kaynaklarına ve süt ürünlerine ağırlık veren diyet planı.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Yulaf ezmesi, süt, muz, ceviz",
+        "snack1": "1 bardak ayran",
+        "lunch": "Mercimek köftesi, mevsim salata",
+        "snack2": "1 elma",
+        "dinner": "Sebzeli omlet, tam tahıllı ekmek"
+      },
+      {
+        "day": 2,
+        "breakfast": "Lor peynirli tost (tam buğday ekmek), domates, roka",
+        "snack1": "1 avuç çiğ fındık",
+        "lunch": "Zeytinyağlı taze fasulye, bulgur pilavı, cacık",
+        "snack2": "1 kâse yoğurt, 1 tatlı kaşığı keten tohumu",
+        "dinner": "Brokoli çorbası, tam buğday ekmeği, salata"
+      },
+      {
+        "day": 3,
+        "breakfast": "Lor peynir, zeytin, domates, 1 dilim tam buğday ekmeği",
+        "snack1": "1 adet hurma, 1 fincan bitki çayı",
+        "lunch": "Nohutlu sebze yemeği, yoğurt",
+        "snack2": "2 adet ceviz",
+        "dinner": "Karnabahar graten, çoban salata"
+      },
+      {
+        "day": 4,
+        "breakfast": "Peynirli omlet, domates, salatalık, 1 dilim ekmek",
+        "snack1": "1 küçük armut",
+        "lunch": "Zeytinyağlı enginar, bulgur pilavı",
+        "snack2": "1 bardak ayran, 1 dilim peynir",
+        "dinner": "Fırında sebzeli mücver, yoğurt"
+      },
+      {
+        "day": 5,
+        "breakfast": "Yulaf lapası, bitkisel süt, kuru meyve parçaları",
+        "snack1": "1 avuç badem",
+        "lunch": "Mercimek çorbası, kepek ekmeği, söğüş salata",
+        "snack2": "1 küçük muz",
+        "dinner": "Sebze güveci, yoğurt"
+      },
+      {
+        "day": 6,
+        "breakfast": "Sebzeli omlet, az peynir, tam buğday ekmeği",
+        "snack1": "1 fincan Türk kahvesi, 1 kare bitter çikolata",
+        "lunch": "Zeytinyağlı kereviz, salata, yoğurt",
+        "snack2": "1 elma, 1 tatlı kaşığı fıstık ezmesi",
+        "dinner": "Ispanak yemeği, bulgur pilavı"
+      },
+      {
+        "day": 7,
+        "breakfast": "Lor peynirli gözleme, söğüş domates-salatalık",
+        "snack1": "1 fincan yeşil çay, 1 avuç kabak çekirdeği",
+        "lunch": "Kuru fasulye, az pirinç pilavı, cacık",
+        "snack2": "1 orta boy şeftali",
+        "dinner": "Izgara sebzeler (patlıcan, kabak, biber), kepek ekmeği"
+      }
+    ]
+  },
+  {
+    "title": "Vegan Diyet",
+    "shortDescription": "Hayvansal hiçbir gıda tüketmeyenler için, bitkisel protein kaynakları ve tahıllarla oluşturulmuş diyet.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Yulaf ezmesi, badem sütü, hurma dilimleri",
+        "snack1": "1 muz, 1 avuç ceviz",
+        "lunch": "Nohutlu baklagil salatası, tam buğday ekmeği",
+        "snack2": "1 kâse meyve salatası",
+        "dinner": "Mercimek çorbası (etsiz), kepekli makarna, sebze sote"
+      },
+      {
+        "day": 2,
+        "breakfast": "Fıstık ezmeli tam tahıllı ekmek, domates, salatalık",
+        "snack1": "1 avuç kuru üzüm, 1 fincan bitki çayı",
+        "lunch": "Zeytinyağlı kereviz, pilavlık bulgur",
+        "snack2": "1 kâse soya yoğurdu, çilek dilimleri",
+        "dinner": "Fırında sebzeler, tahinli sos"
+      },
+      {
+        "day": 3,
+        "breakfast": "Chia tohumlu puding (badem sütü), meyve dilimleri",
+        "snack1": "Havuç dilimleri, humus",
+        "lunch": "Sebzeli kinoa salatası, avokado dilimleri",
+        "snack2": "1 bardak bitkisel süt, 1 kare bitter çikolata",
+        "dinner": "Kırmızı mercimekli sebze güveci, kepek ekmeği"
+      },
+      {
+        "day": 4,
+        "breakfast": "Tam tahıllı ekmek üzerine zeytin ezmesi, yeşillik",
+        "snack1": "1 avuç kavrulmamış fındık",
+        "lunch": "Bakliyat çorbası (mercimek, nohut), salata",
+        "snack2": "Meyve smoothie (bitkisel süt, orman meyveleri)",
+        "dinner": "Fırında patates, soğan, biber, vegan peynir"
+      },
+      {
+        "day": 5,
+        "breakfast": "Tahin-pekmezli tam buğday ekmeği, 1 fincan bitki çayı",
+        "snack1": "1 adet hurma, 1 avuç ceviz",
+        "lunch": "Zeytinyağlı fasulye, kepek ekmeği",
+        "snack2": "1 kâse meyveli soya yoğurdu",
+        "dinner": "Nohut köftesi (falafel), yeşil salata, tam buğday lavaş"
+      },
+      {
+        "day": 6,
+        "breakfast": "Soya sütlü yulaf lapası, muz ve çilek dilimleri",
+        "snack1": "1 fincan bitkisel sütlü kahve, 2 adet hurma",
+        "lunch": "Kinoalı mercimek salatası, limon soslu",
+        "snack2": "1 avuç çiğ badem",
+        "dinner": "Sebzeli bulgur pilavı, 1 porsiyon haşlanmış brokoli"
+      },
+      {
+        "day": 7,
+        "breakfast": "Avokado ezmeli tam tahıllı ekmek, domates dilimleri",
+        "snack1": "Meyve suyu (taze sıkım), 1 avuç kuru üzüm",
+        "lunch": "Vegan hamburger (mercimek köftesi), yeşil salata",
+        "snack2": "1 kâse taze meyve",
+        "dinner": "Mantarlı sebze sote, esmer pirinç pilavı"
+      }
+    ]
+  },
+  {
+    "title": "Glütensiz Diyet",
+    "shortDescription": "Buğday, arpa ve çavdar gibi glüten içeren besinlerden uzak duranlar için hazırlanan diyet.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Glütensiz ekmek, peynir, zeytin, domates, salatalık",
+        "snack1": "1 muz",
+        "lunch": "Tavuklu salata (glütensiz sosla), ayran",
+        "snack2": "1 avuç badem",
+        "dinner": "Izgara balık, haşlanmış sebzeler"
+      },
+      {
+        "day": 2,
+        "breakfast": "Mısır unlu krep, peynir, yeşillik",
+        "snack1": "1 kase yoğurt, 1 tatlı kaşığı chia",
+        "lunch": "Mercimek çorbası, glütensiz ekmek, salata",
+        "snack2": "1 elma, 2 ceviz",
+        "dinner": "Kinoalı sebze pilavı, ızgara tavuk"
+      },
+      {
+        "day": 3,
+        "breakfast": "Glütensiz yulaf lapası, süt, kuru meyve parçaları",
+        "snack1": "1 avuç fındık",
+        "lunch": "Haşlanmış patates ve tavuk, zeytinyağlı salata",
+        "snack2": "1 bardak kefir",
+        "dinner": "Izgara hindi, sebze çorbası"
+      },
+      {
+        "day": 4,
+        "breakfast": "Glütensiz ekmek üzerine avokado, domates dilimleri",
+        "snack1": "1 küçük armut, 1 fincan yeşil çay",
+        "lunch": "Bulgur yerine kinoa pilavı, fırında sebze",
+        "snack2": "2 kuru kayısı, 1 ceviz",
+        "dinner": "Ton balıklı salata, yoğurt"
+      },
+      {
+        "day": 5,
+        "breakfast": "Mısır gevreği (glütensiz), süt, meyve dilimleri",
+        "snack1": "1 dilim az yağlı peynir, 1 adet wasa (glütensiz)",
+        "lunch": "Kuru fasulye, pirinç pilavı (glütensiz), cacık",
+        "snack2": "1 avuç kabak çekirdeği",
+        "dinner": "Izgara somon, roka salatası"
+      },
+      {
+        "day": 6,
+        "breakfast": "Mısır unlu omlet, peynir, çeri domates",
+        "snack1": "1 fincan Türk kahvesi, 1 kare bitter çikolata",
+        "lunch": "Sebzeli tavuk sote, yoğurt",
+        "snack2": "1 şeftali",
+        "dinner": "Fırında hindi, patates püresi (glütensiz süt ile)"
+      },
+      {
+        "day": 7,
+        "breakfast": "Glütensiz tahıl gevreği, badem sütü, kuru üzüm",
+        "snack1": "1 avuç ceviz",
+        "lunch": "Yeşil mercimek yemeği, salata",
+        "snack2": "1 kâse yoğurt, taze meyve dilimleri",
+        "dinner": "Balık çorbası, glütensiz ekmek, salata"
+      }
+    ]
+  },
+  {
+    "title": "Düşük Yağ Diyeti",
+    "shortDescription": "Toplam yağ tüketimini azaltarak kalp sağlığını desteklemeye odaklanan diyet planı.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Yağsız süt, yulaf ezmesi, muz",
+        "snack1": "1 elma, 1 fincan bitki çayı",
+        "lunch": "Yağsız tavuk göğsü, haşlanmış sebze, kepek ekmeği",
+        "snack2": "1 bardak ayran",
+        "dinner": "Izgara hindi, yağsız salata, bulgur pilavı"
+      },
+      {
+        "day": 2,
+        "breakfast": "Haşlanmış yumurta (1 adet), az yağlı beyaz peynir, tam buğday ekmek",
+        "snack1": "1 kâse yoğurt, 1 tatlı kaşığı keten tohumu",
+        "lunch": "Peynirli makarna (yağsız), domates sosu, salata",
+        "snack2": "1 dilim ananas",
+        "dinner": "Fırında balık (az yağlı), haşlanmış patates, salata"
+      },
+      {
+        "day": 3,
+        "breakfast": "Az yağlı süzme peynir, domates, 1 dilim kepek ekmeği",
+        "snack1": "1 avuç tuzsuz leblebi",
+        "lunch": "Sebzeli et sote (yağsız), esmer pirinç pilavı",
+        "snack2": "1 bardak ayran, 1 adet salatalık",
+        "dinner": "Tavuklu sebze çorbası, tam buğday ekmeği"
+      },
+      {
+        "day": 4,
+        "breakfast": "Lor peynirli omlet (yağsız), domates, salatalık",
+        "snack1": "1 şeftali",
+        "lunch": "Haşlanmış tavuk, yeşil salata, kepek ekmeği",
+        "snack2": "1 dilim karpuz",
+        "dinner": "Ton balıklı salata (çok az zeytinyağı), 1 dilim ekmek"
+      },
+      {
+        "day": 5,
+        "breakfast": "Yağsız süt, mısır gevreği, kuru üzüm",
+        "snack1": "1 avuç çiğ badem",
+        "lunch": "Izgara tavuk şiş, kepekli makarna",
+        "snack2": "1 bardak ayran, 1 adet wasa",
+        "dinner": "Düşük yağlı sebze çorbası, salata"
+      },
+      {
+        "day": 6,
+        "breakfast": "2 yumurta beyazı ile omlet, az yağlı peynir, tam buğday ekmek",
+        "snack1": "1 fincan Türk kahvesi, 1 kare bitter çikolata",
+        "lunch": "Izgara köfte (yağsız), bulgur pilavı, ayran",
+        "snack2": "1 elma",
+        "dinner": "Haşlanmış hindi, sebze püresi"
+      },
+      {
+        "day": 7,
+        "breakfast": "Az yağlı yoğurt, yulaf, taze meyve dilimleri",
+        "snack1": "1 bardak kefir, 2 hurma",
+        "lunch": "Sebzeli makarna (az yağlı), salata",
+        "snack2": "1 avuç tuzsuz fıstık",
+        "dinner": "Fırında tavuk, haşlanmış brokoli, yağsız salata"
+      }
+    ]
+  },
+  {
+    "title": "Yüksek Lif Diyeti",
+    "shortDescription": "Sindirim sağlığını destekleyen, meyve-sebze ve tam tahıl ağırlıklı lifli besinler içeren diyet.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Tam tahıllı ekmek, avokado, domates, salatalık",
+        "snack1": "1 elma, 1 fincan yeşil çay",
+        "lunch": "Baklagil çorbası (mercimek, nohut karışık), salata",
+        "snack2": "1 küçük muz, 2 ceviz",
+        "dinner": "Kinoa salatası, ızgara sebzeler"
+      },
+      {
+        "day": 2,
+        "breakfast": "Yulaf ezmesi, süt, keten tohumu, çilek",
+        "snack1": "1 avuç çiğ badem",
+        "lunch": "Kepekli makarna, domates soslu sebze, yoğurt",
+        "snack2": "1 armut",
+        "dinner": "Bulgur pilavı, zeytinyağlı sebze yemeği"
+      },
+      {
+        "day": 3,
+        "breakfast": "Kepek ekmeği, lor peynir, domates, salatalık",
+        "snack1": "1 bardak ayran, 1 adet hurma",
+        "lunch": "Yeşil mercimek salatası, tam buğday ekmeği",
+        "snack2": "1 küçük kâse light yoğurt",
+        "dinner": "Kuru fasulye, bulgur pilavı, cacık"
+      },
+      {
+        "day": 4,
+        "breakfast": "Yulaf lapası, tarçın, elma dilimleri",
+        "snack1": "1 fincan bitki çayı, 1 avuç kuru üzüm",
+        "lunch": "Tavuklu cevizli salata, kepek ekmeği",
+        "snack2": "1 şeftali",
+        "dinner": "Sebzeli kepekli makarna, domates sosu"
+      },
+      {
+        "day": 5,
+        "breakfast": "Tam tahıllı ekmek, az yağlı peynir, söğüş sebze",
+        "snack1": "2 ceviz, 1 fincan yeşil çay",
+        "lunch": "Nohutlu semizotu salatası, ayran",
+        "snack2": "1 bardak kefir",
+        "dinner": "Ispanak yemeği, bulgur pilavı"
+      },
+      {
+        "day": 6,
+        "breakfast": "Lor peynirli omlet, tam buğday ekmeği, domates",
+        "snack1": "1 avuç fındık, 1 elma",
+        "lunch": "Enginar yemeği (zeytinyağlı), kepek ekmeği",
+        "snack2": "1 dilim karpuz",
+        "dinner": "Kuru börülce salatası, yoğurt"
+      },
+      {
+        "day": 7,
+        "breakfast": "Yulaf, yoğurt, muz dilimleri, chia tohumu",
+        "snack1": "1 bardak ayran, 2 hurma",
+        "lunch": "Mercimek köftesi, çoban salata",
+        "snack2": "1 fincan bitki çayı, 1 küçük armut",
+        "dinner": "Etli sebze güveci, esmer pirinç"
+      }
+    ]
+  },
+  {
+    "title": "Ketojenik Diyet",
+    "shortDescription": "Karbonhidrat alımını minimuma indirerek yağ yakımını hedefleyen yüksek yağ ve protein oranlı diyet.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Yumurta ve pastırma, avokado dilimleri",
+        "snack1": "1 avuç badem",
+        "lunch": "Tavuklu yeşillik salatası, zeytinyağı sosu",
+        "snack2": "1 dilim beyaz peynir",
+        "dinner": "Somon ızgara, karnabahar püresi"
+      },
+      {
+        "day": 2,
+        "breakfast": "Omlet (peynirli), zeytin, salatalık",
+        "snack1": "1 avuç fındık",
+        "lunch": "Izgara köfte, brokoli, zeytinyağlı salata",
+        "snack2": "1 haşlanmış yumurta",
+        "dinner": "Fırında tavuk, karnabahar pilavı"
+      },
+      {
+        "day": 3,
+        "breakfast": "Fıstık ezmeli ketojenik ekmek, çeri domates",
+        "snack1": "1 fincan şekersiz kahve, 1 kaşık hindistan cevizi yağı",
+        "lunch": "Ton balığı salatası, zeytinyağı, limon",
+        "snack2": "1 dilim kaşar peyniri",
+        "dinner": "Hindi şiş, kabak spagetti"
+      },
+      {
+        "day": 4,
+        "breakfast": "Yumurta, mantar, peynir, tereyağı",
+        "snack1": "1 fincan kemik suyu",
+        "lunch": "Yağlı kırmızı et ızgara, roka salatası",
+        "snack2": "1 yemek kaşığı fıstık ezmesi",
+        "dinner": "Somon balığı, ıspanak sote"
+      },
+      {
+        "day": 5,
+        "breakfast": "Krem peynirli omlet, zeytin, söğüş sebze",
+        "snack1": "1 avuç ceviz",
+        "lunch": "Tavuklu karnabahar püresi, salata",
+        "snack2": "1 bardak ayran",
+        "dinner": "Izgara et, semizotu salatası"
+      },
+      {
+        "day": 6,
+        "breakfast": "Yumurta, pastırma, kaşar peyniri",
+        "snack1": "1 top şekersiz dondurma (ketojenik)",
+        "lunch": "Hindi köfte, çoban salata",
+        "snack2": "1 kaşık hindistan cevizi yağı ile kahve",
+        "dinner": "Balık ızgara, kabak spagetti"
+      },
+      {
+        "day": 7,
+        "breakfast": "Lor peynir, zeytinyağı, ketojenik ekmek",
+        "snack1": "1 avuç badem, 1 fincan bitki çayı",
+        "lunch": "Tavuk şiş, yeşil salata",
+        "snack2": "1 dilim cheddar peyniri",
+        "dinner": "Kırmızı et sote, mantar, ıspanak"
+      }
+    ]
+  },
+  {
+    "title": "Aralıklı Oruç Diyeti (Intermittent Fasting)",
+    "shortDescription": "Belirli saatlerde yemek yemeyi kısıtlayarak kalori alımını düzenlemeye yönelik beslenme modeli.",
+    "data": [
+      {
+        "day": 1,
+        "breakfast": "Saat 12:00 - Yulaf, süt, tarçın, kuru meyve",
+        "snack1": "Saat 15:00 - 1 avuç badem",
+        "lunch": "Saat 17:00 - Tavuk göğsü, zeytinyağlı salata",
+        "snack2": "Saat 19:00 - 1 dilim peynir, 1 adet wasa",
+        "dinner": "Saat 20:00 - Balık ızgara, sebze sote"
+      },
+      {
+        "day": 2,
+        "breakfast": "Saat 12:00 - Haşlanmış yumurta (2 adet), avokado, 1 dilim tam buğday ekmeği",
+        "snack1": "Saat 15:00 - 1 fincan şekersiz kahve, 1 kare bitter çikolata",
+        "lunch": "Saat 17:00 - Hindi şiş, bulgur pilavı, salata",
+        "snack2": "Saat 19:00 - 1 küçük kâse yoğurt",
+        "dinner": "Saat 20:00 - Zeytinyağlı sebze, 1 dilim ekmek"
+      },
+      {
+        "day": 3,
+        "breakfast": "Saat 12:00 - Yulaf lapası, çilek, süt",
+        "snack1": "Saat 15:00 - 1 fincan yeşil çay, 2 ceviz",
+        "lunch": "Saat 17:00 - Izgara tavuk, salata, ayran",
+        "snack2": "Saat 19:00 - 1 armut",
+        "dinner": "Saat 20:00 - Sebzeli omlet, kepek ekmeği"
+      },
+      {
+        "day": 4,
+        "breakfast": "Saat 12:00 - Lor peynirli tost, domates, salatalık",
+        "snack1": "Saat 15:00 - 1 avuç fındık",
+        "lunch": "Saat 17:00 - Ton balıklı salata, 1 dilim ekmek",
+        "snack2": "Saat 19:00 - 1 küçük muz",
+        "dinner": "Saat 20:00 - Fırında tavuk, sebze graten"
+      },
+      {
+        "day": 5,
+        "breakfast": "Saat 12:00 - Yumurta, peynir, söğüş sebze, 1 dilim tam tahıllı ekmek",
+        "snack1": "Saat 15:00 - 1 bardak ayran",
+        "lunch": "Saat 17:00 - Kuru fasulye, bulgur pilavı, cacık",
+        "snack2": "Saat 19:00 - 1 dilim ananas",
+        "dinner": "Saat 20:00 - Izgara köfte, salata"
+      },
+      {
+        "day": 6,
+        "breakfast": "Saat 12:00 - Yulaf ezmesi, süt, hurma dilimleri",
+        "snack1": "Saat 15:00 - 1 fincan bitki çayı, 1 avuç badem",
+        "lunch": "Saat 17:00 - Sebzeli makarna, light peynir, salata",
+        "snack2": "Saat 19:00 - 1 küçük kase yoğurt",
+        "dinner": "Saat 20:00 - Izgara balık, yeşil salata"
+      },
+      {
+        "day": 7,
+        "breakfast": "Saat 12:00 - 2 haşlanmış yumurta, lor peyniri, 1 dilim tam buğday ekmeği",
+        "snack1": "Saat 15:00 - 1 bardak kefir, 1 kuru kayısı",
+        "lunch": "Saat 17:00 - Tavuk sote, yoğurt, salata",
+        "snack2": "Saat 19:00 - 1 elma",
+        "dinner": "Saat 20:00 - Fırında hindi, sebze sote, 1 dilim ekmek"
+      }
+    ]
+  }
+]
