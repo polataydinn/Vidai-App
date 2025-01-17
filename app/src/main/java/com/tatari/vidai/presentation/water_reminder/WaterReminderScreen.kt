@@ -29,6 +29,8 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.drawscope.Stroke
 import androidx.compose.ui.res.painterResource
@@ -68,6 +70,7 @@ fun WaterReminderScreen(
     viewState: WaterReminderState,
     onViewEvent: (WaterReminderEvent) -> Unit
 ) {
+    val currentIntake = remember { mutableIntStateOf(0) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -92,10 +95,14 @@ fun WaterReminderScreen(
         )
 
         WaterIntakeTracker(
-            currentIntake = 800,
+            currentIntake = currentIntake.value,
             targetIntake = 2000,
-            onAdd = {  },
-            onRemove = {  },
+            onAdd = { currentIntake.value += 250 },
+            onRemove = {
+                if (currentIntake.intValue >= 250) {
+                    currentIntake.value -= 250
+                }
+            },
         )
     }
 }
@@ -110,7 +117,10 @@ fun WaterIntakeTracker(
     Column(
         horizontalAlignment = Alignment.CenterHorizontally,
         verticalArrangement = Arrangement.run { spacedBy(16.dp) },
-        modifier = Modifier.fillMaxSize().padding(16.dp).padding(top = 48.dp)
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(16.dp)
+            .padding(top = 48.dp)
     ) {
         Box(
             contentAlignment = Alignment.Center,
@@ -160,14 +170,16 @@ fun WaterIntakeTracker(
             Image(
                 painter = painterResource(R.drawable.ic_minus),
                 contentDescription = "Decrease",
-                modifier = Modifier.size(28.dp)
+                modifier = Modifier
+                    .size(28.dp)
                     .clickable { onRemove() },
             )
 
             Image(
                 painter = painterResource(R.drawable.ic_plus),
                 contentDescription = "Decrease",
-                modifier = Modifier.size(28.dp)
+                modifier = Modifier
+                    .size(28.dp)
                     .clickable { onAdd() },
             )
 
