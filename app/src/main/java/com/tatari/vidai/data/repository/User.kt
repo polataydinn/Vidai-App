@@ -1,5 +1,6 @@
 package com.tatari.vidai.data.repository
 
+import android.util.Log
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
@@ -13,11 +14,15 @@ import kotlinx.coroutines.CompletableDeferred
 import kotlinx.coroutines.Deferred
 
 suspend fun getUser(): User? {
-    val uid = Firebase.auth.currentUser?.uid ?: return null
-    val user = Firebase.database.getReference(USERS_REF).child(uid).toDefered().await().toUser()
-    return user
+    try {
+        val uid = Firebase.auth.currentUser?.uid ?: return null
+        val user = Firebase.database.getReference(USERS_REF).child(uid).toDefered().await().toUser()
+        return user
+    }catch (ex: Exception) {
+        Log.e("TAG", "getUser: ex: $ex" )
+        return null
+    }
 }
-
 fun DataSnapshot.toUser(): User = User(
     name = child("name").value.toString(),
     surname = child("surname").value.toString(),
