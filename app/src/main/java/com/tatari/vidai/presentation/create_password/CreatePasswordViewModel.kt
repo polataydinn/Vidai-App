@@ -1,7 +1,8 @@
 package com.tatari.vidai.presentation.create_password
 
-import com.google.firebase.auth.auth
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
 import com.tatari.vidai.common.Session
 import com.tatari.vidai.presentation.base.BaseViewModel
@@ -9,7 +10,11 @@ import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
 import com.tatari.vidai.presentation.base.State
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
+
+const val USERS_REF = "Users"
 
 @HiltViewModel
 class CreatePasswordViewModel @Inject constructor() :
@@ -59,12 +64,21 @@ class CreatePasswordViewModel @Inject constructor() :
         Firebase.auth.createUserWithEmailAndPassword(Session.createAccount?.email.orEmpty(), getCurrentState().firstPassword)
             .addOnCompleteListener { task ->
                 if (task.isSuccessful) {
+                    sendUsersDetailToFirebase(task.result.user?.uid)
                     setEffect { CreatePasswordEffect.NavigateToHome }
                 } else {
                     setEffect { CreatePasswordEffect.OnError(task.exception?.message.orEmpty()) }
                 }
             }
+    }
 
+    private fun sendUsersDetailToFirebase(uid: String?) {
+        viewModelScope.launch {
+            uid?.let {
+                Firebase.database.getReference(USERS_REF).child(it)
+                    .setValue(Session.createAccount).await()
+            }
+        }
     }
 }
 

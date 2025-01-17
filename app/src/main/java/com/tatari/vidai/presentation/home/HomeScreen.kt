@@ -99,7 +99,7 @@ fun HomeScreen(
             )
             Text(
                 modifier = Modifier.padding(start = 8.dp),
-                text = "Rama Tatari",
+                text = viewState.user?.fullName.orEmpty(),
                 fontSize = 20.sp,
                 fontWeight = FontWeight.Bold
             )
@@ -110,8 +110,8 @@ fun HomeScreen(
                     .weight(1f)
             )
             Column {
-                Text(text = "82 kg", fontSize = 16.sp, color = Color.Gray)
-                Text(text = "173 cm", fontSize = 16.sp, color = Color.Gray)
+                Text(text = "${viewState.user?.weight.orEmpty()} kg", fontSize = 16.sp, color = Color.Gray)
+                Text(text = "${viewState.user?.height.orEmpty()} cm", fontSize = 16.sp, color = Color.Gray)
             }
         }
 

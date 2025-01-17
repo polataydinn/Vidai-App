@@ -1,15 +1,22 @@
 package com.tatari.vidai.presentation.login
 
+import androidx.lifecycle.viewModelScope
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.ktx.database
 import com.google.firebase.ktx.Firebase
+import com.tatari.vidai.common.Session
+import com.tatari.vidai.common.User
+import com.tatari.vidai.data.repository.getUser
 import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
 import com.tatari.vidai.presentation.base.State
-import com.tatari.vidai.presentation.create_account.CreateAccountEvent
+import com.tatari.vidai.presentation.create_password.USERS_REF
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.tasks.await
 import javax.inject.Inject
-import kotlin.math.log
 
 @HiltViewModel
 class LoginViewModel @Inject constructor() : BaseViewModel<LoginEvent, LoginState, LoginEffect>() {
@@ -68,6 +75,9 @@ class LoginViewModel @Inject constructor() : BaseViewModel<LoginEvent, LoginStat
          Firebase.auth.signInWithEmailAndPassword(getCurrentState().email, getCurrentState().password)
              .addOnCompleteListener { task ->
                  if (task.isSuccessful) {
+                     viewModelScope.launch {
+                         Session.createAccount = getUser()
+                     }
                      setEffect { LoginEffect.NavigateToHome }
                  } else {
                      setEffect { LoginEffect.ShowError(task.exception?.message.orEmpty()) }

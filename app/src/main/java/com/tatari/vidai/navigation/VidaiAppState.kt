@@ -8,9 +8,13 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.tatari.vidai.common.Session
+import com.tatari.vidai.data.repository.getUser
 import com.tatari.vidai.presentation.home.HomeRoute
 import com.tatari.vidai.presentation.welcome.welcomeRoute
 import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.launch
+import kotlinx.coroutines.runBlocking
 
 @Composable
 fun rememberVidaiAppState(
@@ -32,6 +36,9 @@ class VidaiAppState(
         get() = if (Firebase.auth.currentUser == null) {
             welcomeRoute
         } else {
+            coroutineScope.launch {
+                Session.createAccount = getUser()
+            }
             HomeRoute
         }
 }

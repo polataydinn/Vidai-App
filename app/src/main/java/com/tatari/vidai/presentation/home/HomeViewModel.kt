@@ -1,21 +1,30 @@
 package com.tatari.vidai.presentation.home
 
+import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.tatari.vidai.common.Session
+import com.tatari.vidai.common.User
 import com.tatari.vidai.data.model.Diets
 import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
 import com.tatari.vidai.presentation.base.State
 import dagger.hilt.android.lifecycle.HiltViewModel
+import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
 class HomeViewModel @Inject constructor() : BaseViewModel<HomeEvent, HomeState, HomeEffect>() {
     override fun setInitialState(): HomeState {
-        return HomeState()
+        viewModelScope.launch {
+            val user = Session.authUser()
+            setState {
+                copy(user = user, isLoading = false)
+            }
+        }
+        return HomeState(isLoading = true)
     }
 
     override fun handleEvents(event: HomeEvent) {
@@ -54,8 +63,9 @@ sealed interface HomeEvent : Event {
 }
 
 data class HomeState(
+    val user: User? = null,
     val isLoading: Boolean = false,
-    val dietList: Diets? = null
+    val dietList: Diets? = null,
 ) : State
 
 sealed interface HomeEffect : Effect {

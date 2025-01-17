@@ -119,7 +119,7 @@ fun CreateAccountScreen(
 
             VidaiEditText(
                 modifier = Modifier.padding(top = 8.dp),
-                value = viewState.surname.orEmpty(),
+                value = viewState.weight.orEmpty(),
                 onValueChange = { onViewEvent(CreateAccountEvent.OnWeightChanged(it)) },
                 label = "Kilo",
                 textStyle = TextStyle(
@@ -133,7 +133,7 @@ fun CreateAccountScreen(
 
             VidaiEditText(
                 modifier = Modifier.padding(top = 8.dp),
-                value = viewState.surname.orEmpty(),
+                value = viewState.height.orEmpty(),
                 onValueChange = { onViewEvent(CreateAccountEvent.OnHeightChanged(it)) },
                 label = "Boy",
                 textStyle = TextStyle(
