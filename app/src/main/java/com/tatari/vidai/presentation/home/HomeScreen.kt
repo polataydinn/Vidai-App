@@ -2,6 +2,7 @@ package com.tatari.vidai.presentation.home
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -42,7 +43,14 @@ import com.tatari.vidai.ui.drawables.IcStart
 
 @Composable
 fun HomeRoute(
-    navigateToLogin: () -> Unit, viewModel: HomeViewModel = hiltViewModel()
+    navigateToLogin: () -> Unit,
+    navigateToWaterReminder: () -> Unit,
+    navigateToCalorieCalculator: () -> Unit,
+    navigateToIdealWeight: () -> Unit,
+    navigateToBMRCalculator: () -> Unit,
+    navigateToWeightTracker: () -> Unit,
+    navigateToFavorites: () -> Unit,
+    viewModel: HomeViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.state.collectAsState()
 
@@ -50,6 +58,12 @@ fun HomeRoute(
         viewModel.effect.collect { effect ->
             when (effect) {
                 HomeEffect.NavigateToLogin -> navigateToLogin()
+                HomeEffect.NavigateToBMRCalculator -> navigateToBMRCalculator()
+                HomeEffect.NavigateToCalorieCalculator -> navigateToCalorieCalculator()
+                HomeEffect.NavigateToFavorites -> navigateToFavorites()
+                HomeEffect.NavigateToIdealWeight -> navigateToIdealWeight()
+                HomeEffect.NavigateToWaterReminder -> navigateToWaterReminder()
+                HomeEffect.NavigateToWeightTracker -> navigateToWeightTracker()
             }
         }
     }
@@ -102,12 +116,42 @@ fun HomeScreen(
         }
 
         val actions = listOf(
-            QuickAction("Su Hatırlatıcı", painterResource(R.drawable.ic_water), Color(0xFFE7F2FF)),
-            QuickAction("Kalori Hedefi", painterResource(R.drawable.ic_calori_goal), Color(0xFFFFEFEE)),
-            QuickAction("İdeal Kilo", painterResource(R.drawable.ic_ideal_weight), Color(0xFFE3F9FF)),
-            QuickAction("BMR Hesaplaması", painterResource(R.drawable.ic_bmr_calculator), Color(0xFFFFF1D8)),
-            QuickAction("Kilo Takibi", painterResource(R.drawable.ic_weight_tracker), Color(0xFFF1EDFF)),
-            QuickAction("Favoriler", painterResource(R.drawable.ic_favorites), Color(0xFFDFFFE6)),
+            QuickAction(
+                title = "Su Hatırlatıcı",
+                icon = painterResource(R.drawable.ic_water),
+                backgroundColor = Color(0xFFE7F2FF),
+                type = QuickEvents.WATER_REMINDER
+            ),
+            QuickAction(
+                title = "Kalori Hedefi",
+                icon = painterResource(R.drawable.ic_calori_goal),
+                backgroundColor = Color(0xFFFFEFEE),
+                type = QuickEvents.CALORIE_GOAL
+            ),
+            QuickAction(
+                title = "İdeal Kilo",
+                icon = painterResource(R.drawable.ic_ideal_weight),
+                backgroundColor = Color(0xFFE3F9FF),
+                type = QuickEvents.IDEAL_WEIGHT
+            ),
+            QuickAction(
+                title = "BMR Hesaplaması",
+                icon = painterResource(R.drawable.ic_bmr_calculator),
+                backgroundColor = Color(0xFFFFF1D8),
+                type = QuickEvents.BMR_CALCULATOR
+            ),
+            QuickAction(
+                title = "Kilo Takibi",
+                icon = painterResource(R.drawable.ic_weight_tracker),
+                backgroundColor = Color(0xFFF1EDFF),
+                type = QuickEvents.WEIGHT_TRACKER
+            ),
+            QuickAction(
+                title = "Favoriler",
+                icon = painterResource(R.drawable.ic_favorites),
+                backgroundColor = Color(0xFFDFFFE6),
+                type = QuickEvents.FAVORITES
+            ),
         )
 
         LazyVerticalGrid(
@@ -127,7 +171,9 @@ fun HomeScreen(
                 QuickActionItem(
                     title = actions[it].title,
                     iconRes = actions[it].icon,
-                    color = actions[it].backgroundColor
+                    color = actions[it].backgroundColor,
+                    quickEvents = actions[it].type,
+                    onItemClick = { type -> onViewEvent(HomeEvent.OnQuickActionsClicked(type)) }
                 )
             }
 
@@ -142,11 +188,11 @@ fun HomeScreen(
                     modifier = Modifier.padding(top = 16.dp, start = 8.dp)
                 )
             }
-            items(10, span = { GridItemSpan(2) }) {
+            items(viewState.dietList?.size ?: 0, span = { GridItemSpan(2) }) {
                 DietListItem(
                     modifier = Modifier,
-                    title = "Kış Diyeti",
-                    description = "Kış diyeti, soğuk havalarda bağışıklığı güçlen..."
+                    title = viewState.dietList?.getOrNull(it)?.title.orEmpty(),
+                    description = viewState.dietList?.getOrNull(it)?.shortDescription.orEmpty()
                 )
             }
         }
@@ -155,7 +201,13 @@ fun HomeScreen(
 }
 
 @Composable
-fun QuickActionItem(title: String, iconRes: Painter, color: Color) {
+fun QuickActionItem(
+    title: String,
+    iconRes: Painter,
+    color: Color,
+    quickEvents: QuickEvents,
+    onItemClick: (QuickEvents) -> Unit = {}
+) {
     Row(
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
@@ -164,6 +216,9 @@ fun QuickActionItem(title: String, iconRes: Painter, color: Color) {
                 color = color, shape = RoundedCornerShape(8.dp)
             )
             .padding(4.dp)
+            .clickable {
+                onItemClick(quickEvents)
+            }
     ) {
         Image(
             painter = iconRes,
@@ -198,7 +253,8 @@ fun DietListItem(
             .background(
                 color = Color.White, shape = RoundedCornerShape(8.dp)
             )
-            .padding(4.dp)
+            .padding(4.dp),
+        verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
             painter = painterResource(R.drawable.ic_diet_list),
@@ -209,9 +265,9 @@ fun DietListItem(
                 .padding(4.dp),
         )
 
-        Column (
+        Column(
             modifier = Modifier.padding(8.dp)
-        ){
+        ) {
             Text(
                 text = title,
                 style = TextStyle(
@@ -231,24 +287,22 @@ fun DietListItem(
             )
         }
     }
-
 }
 
+data class QuickAction(
+    val title: String,
+    val icon: Painter,
+    val backgroundColor: Color,
+    val type: QuickEvents
+)
 
-// Data class for DietPlan
-data class DietPlan(val title: String, val description: String)
-data class QuickAction(val title: String, val icon: Painter, val backgroundColor: Color)
-
-//@Preview(showBackground = true, showSystemUi = true)
-@Composable
-fun PreviewDietAppUI() {
-    val sampleDietList = listOf(
-        DietPlan("Kış Diyeti", "Kış diyeti, soğuk havalarda bağışıklığı güçlen..."), DietPlan(
-            "3 Günde 4.5 Kilo Verdiren Diyet", "3 günde, soğuk havalarda bağışıklığı güçlen..."
-        ), DietPlan(
-            "3 Günde 1 Kilo Verdiren Diyet", "Kış diyeti, soğuk havalarda bağışıklığı güçlen..."
-        )
-    )
+enum class QuickEvents {
+    WATER_REMINDER,
+    CALORIE_GOAL,
+    IDEAL_WEIGHT,
+    BMR_CALCULATOR,
+    WEIGHT_TRACKER,
+    FAVORITES
 }
 
 

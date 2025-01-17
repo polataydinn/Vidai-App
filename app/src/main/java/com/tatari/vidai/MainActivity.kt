@@ -12,6 +12,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.ui.Modifier
 import com.google.android.gms.auth.api.identity.Identity
 import com.google.firebase.FirebaseApp
+import com.google.gson.Gson
+import com.tatari.vidai.common.Session
+import com.tatari.vidai.data.model.Diets
 import com.tatari.vidai.presentation.auth.GoogleAuthUiClient
 import com.tatari.vidai.ui.theme.AppBackground
 import com.tatari.vidai.ui.theme.VIDAITheme
@@ -46,14 +49,19 @@ class MainActivity : ComponentActivity() {
                 }
             }
         }
+        readJsonFile()
     }
 
-    fun readJsonFile() {
+    private fun readJsonFile() {
         val inputStream = resources.openRawResource(R.raw.diets)
         val size = inputStream.available()
         val buffer = ByteArray(size)
         inputStream.read(buffer)
         inputStream.close()
         val json = String(buffer, Charsets.UTF_8)
+
+        val gson = Gson()
+        val diets: Diets = gson.fromJson(json, Diets::class.java)
+        Session.diets = diets
     }
 }
