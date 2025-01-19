@@ -35,12 +35,6 @@ fun DataSnapshot.toUser(): User = User(
 fun DatabaseReference.toDefered(): Deferred<DataSnapshot> {
     val deferred = CompletableDeferred<DataSnapshot>()
 
-    deferred.invokeOnCompletion {
-        if (deferred.isCancelled) {
-            // optional, handle coroutine cancellation however you'd like here
-        }
-    }
-
     this.addListenerForSingleValueEvent(object : ValueEventListener {
         override fun onCancelled(p0: DatabaseError) {
             deferred.completeExceptionally(p0.toException())

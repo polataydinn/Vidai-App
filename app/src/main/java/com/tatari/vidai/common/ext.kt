@@ -14,3 +14,11 @@ fun Context.getActivityOrNull(): MainActivity? {
 
     return null
 }
+
+fun getCurrentTime(): String {
+    val currentTime = System.currentTimeMillis()
+    val day = android.text.format.DateFormat.format("dd", currentTime) as String
+    val month = android.text.format.DateFormat.format("MM", currentTime) as String
+    val year = android.text.format.DateFormat.format("yyyy", currentTime) as String
+    return "$day-$month-$year"
+}

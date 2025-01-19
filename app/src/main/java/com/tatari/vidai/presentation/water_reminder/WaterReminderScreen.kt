@@ -70,7 +70,6 @@ fun WaterReminderScreen(
     viewState: WaterReminderState,
     onViewEvent: (WaterReminderEvent) -> Unit
 ) {
-    val currentIntake = remember { mutableIntStateOf(0) }
     Column(
         modifier = Modifier
             .fillMaxSize()
@@ -95,12 +94,12 @@ fun WaterReminderScreen(
         )
 
         WaterIntakeTracker(
-            currentIntake = currentIntake.intValue,
-            targetIntake = 2000,
-            onAdd = { currentIntake.value += 250 },
+            currentIntake = viewState.currentIntake,
+            targetIntake = 2500,
+            onAdd = { onViewEvent(WaterReminderEvent.OnAddIntakeClicked) },
             onRemove = {
-                if (currentIntake.intValue >= 250) {
-                    currentIntake.value -= 250
+                if (viewState.currentIntake >= 250) {
+                    onViewEvent(WaterReminderEvent.OnRemoveIntakeClicked)
                 }
             },
         )
