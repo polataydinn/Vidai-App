@@ -13,12 +13,14 @@ fun NavController.navigateToFavorites(navOptions: NavOptions? = null) {
 
 fun NavGraphBuilder.favoritesScreen(
     navigateBack: () -> Unit,
+    navigateToDietDetails: () -> Unit,
 ) {
     composable(
         route = FavoritesRoute,
     ) {
         FavoritesRoute(
             navigateBack = navigateBack,
+            navigateToDietDetails = navigateToDietDetails,
         )
     }
 }

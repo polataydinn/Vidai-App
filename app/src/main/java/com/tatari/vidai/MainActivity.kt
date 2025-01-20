@@ -4,6 +4,7 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.activity.viewModels
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.navigationBarsPadding
@@ -23,6 +24,8 @@ import dagger.hilt.android.AndroidEntryPoint
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
+
+    private val viewModel: MainViewModel by viewModels()
 
     val googleAuthUiClient by lazy {
         GoogleAuthUiClient(
@@ -63,5 +66,6 @@ class MainActivity : ComponentActivity() {
         val gson = Gson()
         val diets: Diets = gson.fromJson(json, Diets::class.java)
         Session.diets = diets
+        viewModel.insertDiets(diets)
     }
 }

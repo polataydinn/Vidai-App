@@ -4,8 +4,12 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
+import androidx.room.TypeConverters
+import com.tatari.vidai.DietTypeConverter
+import com.tatari.vidai.data.model.DietsItem
 
-@Database(entities = [WaterReminder::class], version = 1, exportSchema = false)
+@Database(entities = [WaterReminder::class, WeightTracker::class, DietsItem::class], version = 4, exportSchema = false)
+@TypeConverters(DietTypeConverter::class)
 abstract class DietDatabase : RoomDatabase() {
 
     abstract fun dietDao(): DietDao

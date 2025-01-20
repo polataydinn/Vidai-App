@@ -64,7 +64,7 @@
   {
     "title": "Karbonhidrat Dengeli Diyet",
     "shortDescription": "Günlük karbonhidrat alımını dengeleyerek kan şekeri kontrolüne yardımcı olur.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Yulaf lapası, süt, tarçınlı elma",
@@ -126,7 +126,7 @@
   {
     "title": "Protein Ağırlıklı Diyet",
     "shortDescription": "Kas kütlesini arttırmak ve tok tutmak amacıyla protein oranı yüksek beslenme planı.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Yumurta beyazı omleti, lor peyniri, çeri domates",
@@ -188,7 +188,7 @@
   {
     "title": "Vejetaryen Diyet",
     "shortDescription": "Et yerine bitkisel protein kaynaklarına ve süt ürünlerine ağırlık veren diyet planı.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Yulaf ezmesi, süt, muz, ceviz",
@@ -250,7 +250,7 @@
   {
     "title": "Vegan Diyet",
     "shortDescription": "Hayvansal hiçbir gıda tüketmeyenler için, bitkisel protein kaynakları ve tahıllarla oluşturulmuş diyet.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Yulaf ezmesi, badem sütü, hurma dilimleri",
@@ -312,7 +312,7 @@
   {
     "title": "Glütensiz Diyet",
     "shortDescription": "Buğday, arpa ve çavdar gibi glüten içeren besinlerden uzak duranlar için hazırlanan diyet.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Glütensiz ekmek, peynir, zeytin, domates, salatalık",
@@ -374,7 +374,7 @@
   {
     "title": "Düşük Yağ Diyeti",
     "shortDescription": "Toplam yağ tüketimini azaltarak kalp sağlığını desteklemeye odaklanan diyet planı.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Yağsız süt, yulaf ezmesi, muz",
@@ -436,7 +436,7 @@
   {
     "title": "Yüksek Lif Diyeti",
     "shortDescription": "Sindirim sağlığını destekleyen, meyve-sebze ve tam tahıl ağırlıklı lifli besinler içeren diyet.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Tam tahıllı ekmek, avokado, domates, salatalık",
@@ -498,7 +498,7 @@
   {
     "title": "Ketojenik Diyet",
     "shortDescription": "Karbonhidrat alımını minimuma indirerek yağ yakımını hedefleyen yüksek yağ ve protein oranlı diyet.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Yumurta ve pastırma, avokado dilimleri",
@@ -560,7 +560,7 @@
   {
     "title": "Aralıklı Oruç Diyeti (Intermittent Fasting)",
     "shortDescription": "Belirli saatlerde yemek yemeyi kısıtlayarak kalori alımını düzenlemeye yönelik beslenme modeli.",
-    "data": [
+    "dietList": [
       {
         "day": 1,
         "breakfast": "Saat 12:00 - Yulaf, süt, tarçın, kuru meyve",

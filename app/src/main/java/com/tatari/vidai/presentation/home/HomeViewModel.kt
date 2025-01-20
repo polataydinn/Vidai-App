@@ -1,22 +1,34 @@
 package com.tatari.vidai.presentation.home
 
+import android.content.Context
 import androidx.lifecycle.viewModelScope
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
 import com.tatari.vidai.common.Session
 import com.tatari.vidai.common.User
-import com.tatari.vidai.data.model.Diets
+import com.tatari.vidai.data.model.DietsItem
+import com.tatari.vidai.data.repository.Repository
+import com.tatari.vidai.data.room.DietDatabase
 import com.tatari.vidai.presentation.base.BaseViewModel
 import com.tatari.vidai.presentation.base.Effect
 import com.tatari.vidai.presentation.base.Event
 import com.tatari.vidai.presentation.base.State
 import dagger.hilt.android.lifecycle.HiltViewModel
+import dagger.hilt.android.qualifiers.ApplicationContext
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class HomeViewModel @Inject constructor() : BaseViewModel<HomeEvent, HomeState, HomeEffect>() {
+class HomeViewModel @Inject constructor(
+    @ApplicationContext private val context: Context
+) : BaseViewModel<HomeEvent, HomeState, HomeEffect>() {
+
+    private val database = DietDatabase.getDatabase(context)
+    private val repository = Repository(database.dietDao())
+
     override fun setInitialState(): HomeState {
         viewModelScope.launch {
             val user = Session.authUser()
@@ -45,27 +57,45 @@ class HomeViewModel @Inject constructor() : BaseViewModel<HomeEvent, HomeState, 
                     QuickEvents.FAVORITES -> setEffect { HomeEffect.NavigateToFavorites }
                 }
             }
+
+            is HomeEvent.OnDietItemClicked -> {
+                Session.selectedDiet = event.diet
+                setEffect { HomeEffect.NavigateToDietDetails }
+            }
+
+            HomeEvent.OnBannerClicked -> {
+                setEffect { HomeEffect.NavigateToBanner }
+            }
         }
     }
 
     init {
-        setState {
-            copy(
-                dietList = Session.diets
-            )
+        viewModelScope.launch(Dispatchers.IO) {
+            repository.getDiets().collectLatest {
+                if (getCurrentState().dietList.isNullOrEmpty()) {
+                    setState {
+                        copy(
+                            dietList = it
+                        )
+                    }
+                }
+            }
         }
     }
 }
 
 sealed interface HomeEvent : Event {
     data object OnLogOutClicked : HomeEvent
+    data object OnBannerClicked : HomeEvent
+
     data class OnQuickActionsClicked(val type: QuickEvents) : HomeEvent
+    data class OnDietItemClicked(val diet: DietsItem?) : HomeEvent
 }
 
 data class HomeState(
     val user: User? = null,
     val isLoading: Boolean = false,
-    val dietList: Diets? = null,
+    val dietList: List<DietsItem>? = null,
 ) : State
 
 sealed interface HomeEffect : Effect {
@@ -76,6 +106,7 @@ sealed interface HomeEffect : Effect {
     data object NavigateToBMRCalculator : HomeEffect
     data object NavigateToWeightTracker : HomeEffect
     data object NavigateToFavorites : HomeEffect
-
+    data object NavigateToDietDetails : HomeEffect
+    data object NavigateToBanner : HomeEffect
 
 }

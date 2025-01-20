@@ -19,6 +19,8 @@ fun NavGraphBuilder.homeScreen(
     navigateToBMRCalculator: () -> Unit,
     navigateToWeightTracker: () -> Unit,
     navigateToFavorites: () -> Unit,
+    navigateToDietDetail: () -> Unit,
+    navigateToBanner: () -> Unit,
 ) {
     composable(
         route = HomeRoute,
@@ -30,7 +32,9 @@ fun NavGraphBuilder.homeScreen(
             navigateToIdealWeight = navigateToIdealWeight,
             navigateToBMRCalculator = navigateToBMRCalculator,
             navigateToWeightTracker = navigateToWeightTracker,
-            navigateToFavorites = navigateToFavorites
+            navigateToFavorites = navigateToFavorites,
+            navigateToDietDetail = navigateToDietDetail,
+            navigateToBanner = navigateToBanner,
         )
     }
 }

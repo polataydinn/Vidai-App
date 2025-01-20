@@ -19,6 +19,7 @@ import androidx.compose.foundation.lazy.grid.GridItemSpan
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -50,6 +51,8 @@ fun HomeRoute(
     navigateToBMRCalculator: () -> Unit,
     navigateToWeightTracker: () -> Unit,
     navigateToFavorites: () -> Unit,
+    navigateToDietDetail: () -> Unit,
+    navigateToBanner: () -> Unit,
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val viewState by viewModel.state.collectAsState()
@@ -64,6 +67,8 @@ fun HomeRoute(
                 HomeEffect.NavigateToIdealWeight -> navigateToIdealWeight()
                 HomeEffect.NavigateToWaterReminder -> navigateToWaterReminder()
                 HomeEffect.NavigateToWeightTracker -> navigateToWeightTracker()
+                HomeEffect.NavigateToDietDetails -> navigateToDietDetail()
+                HomeEffect.NavigateToBanner -> navigateToBanner()
             }
         }
     }
@@ -88,14 +93,15 @@ fun HomeScreen(
     ) {
 
         Row(
-            modifier = Modifier.fillMaxWidth(), verticalAlignment = Alignment.CenterVertically
+            modifier = Modifier.fillMaxWidth()
+                .padding(bottom = 8.dp), verticalAlignment = Alignment.CenterVertically
         ) {
             Image(
-                imageVector = Icons.IcStart,
+                painter = painterResource(R.drawable.ic_avatar),
                 contentDescription = "Profile Picture",
                 modifier = Modifier
                     .size(64.dp)
-                    .background(Color.Gray, shape = RoundedCornerShape(50))
+                    .background(Color.Red, shape = RoundedCornerShape(50))
             )
             Text(
                 modifier = Modifier.padding(start = 8.dp),
@@ -164,7 +170,8 @@ fun HomeScreen(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(200.dp)
-                        .padding(top = 16.dp),
+                        .padding(top = 16.dp)
+                        .clickable { onViewEvent(HomeEvent.OnBannerClicked) },
                 )
             }
             items(actions.size) {
@@ -192,7 +199,8 @@ fun HomeScreen(
                 DietListItem(
                     modifier = Modifier,
                     title = viewState.dietList?.getOrNull(it)?.title.orEmpty(),
-                    description = viewState.dietList?.getOrNull(it)?.shortDescription.orEmpty()
+                    description = viewState.dietList?.getOrNull(it)?.shortDescription.orEmpty(),
+                    onItemClick = { onViewEvent(HomeEvent.OnDietItemClicked(viewState.dietList?.getOrNull(it))) }
                 )
             }
         }
@@ -245,6 +253,8 @@ fun DietListItem(
     modifier: Modifier = Modifier,
     title: String,
     description: String,
+    showFavorite: Boolean = false,
+    onItemClick: () -> Unit = {}
 ) {
 
     Row(
@@ -253,7 +263,8 @@ fun DietListItem(
             .background(
                 color = Color.White, shape = RoundedCornerShape(8.dp)
             )
-            .padding(4.dp),
+            .padding(4.dp)
+            .clickable { onItemClick() },
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
@@ -268,14 +279,31 @@ fun DietListItem(
         Column(
             modifier = Modifier.padding(8.dp)
         ) {
-            Text(
-                text = title,
-                style = TextStyle(
-                    color = Color.Black,
-                    fontSize = 14.sp,
-                    fontFamily = FontFamily(Font(R.font.poppins_semi_bold))
-                ),
-            )
+
+            Row(
+                verticalAlignment = Alignment.CenterVertically
+            ) {
+                Text(
+                    text = title,
+                    style = TextStyle(
+                        color = Color.Black,
+                        fontSize = 14.sp,
+                        fontFamily = FontFamily(Font(R.font.poppins_semi_bold))
+                    ),
+                    modifier = Modifier.weight(1f),
+                )
+
+                if (showFavorite) {
+                    Image(
+                        imageVector = Icons.Default.Favorite,
+                        contentDescription = "Favorite",
+                        modifier = Modifier
+                            .size(16.dp)
+                    )
+                }
+
+            }
+
 
             Text(
                 text = description,

@@ -5,9 +5,10 @@ import androidx.compose.foundation.layout.statusBarsPadding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
-import androidx.navigation.NavOptions
 import androidx.navigation.compose.NavHost
 import androidx.navigation.navOptions
+import com.tatari.vidai.presentation.banner_detail.bannerDetailScreen
+import com.tatari.vidai.presentation.banner_detail.navigateToBannerDetail
 import com.tatari.vidai.presentation.bmr_calculator.bmrCalculatorScreen
 import com.tatari.vidai.presentation.bmr_calculator.navigateToBmrCalculator
 import com.tatari.vidai.presentation.calorie_calculator.calorieCalculatorScreen
@@ -16,6 +17,8 @@ import com.tatari.vidai.presentation.create_account.createAccountScreen
 import com.tatari.vidai.presentation.create_account.navigateToCreateAccount
 import com.tatari.vidai.presentation.create_password.createPasswordScreen
 import com.tatari.vidai.presentation.create_password.navigateToCreatePassword
+import com.tatari.vidai.presentation.diet_detail.dietDetailScreen
+import com.tatari.vidai.presentation.diet_detail.navigateToDietDetail
 import com.tatari.vidai.presentation.favorites.favoritesScreen
 import com.tatari.vidai.presentation.favorites.navigateToFavorites
 import com.tatari.vidai.presentation.forget_password.forgetPasswordScreen
@@ -132,6 +135,12 @@ fun VidaiNavHost(
             },
             navigateToFavorites = {
                 navController.navigateToFavorites()
+            },
+            navigateToDietDetail = {
+                navController.navigateToDietDetail()
+            },
+            navigateToBanner = {
+                 navController.navigateToBannerDetail()
             }
         )
 
@@ -166,6 +175,21 @@ fun VidaiNavHost(
         )
 
         favoritesScreen(
+            navigateBack = {
+                navController.popBackStack()
+            },
+            navigateToDietDetails = {
+                navController.navigateToDietDetail()
+            }
+        )
+
+        dietDetailScreen(
+            navigateBack = {
+                navController.popBackStack()
+            }
+        )
+
+        bannerDetailScreen(
             navigateBack = {
                 navController.popBackStack()
             }
